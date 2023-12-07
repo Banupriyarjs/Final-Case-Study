@@ -50,7 +50,7 @@
 			<scope>provided</scope>
 		</dependency>
 		<!-- Tomcat Embed -->
-		<dependency>
+		 <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>compile</scope>
