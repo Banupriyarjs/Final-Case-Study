@@ -18,10 +18,34 @@
             <div class="col-6">
                 <!-- the action attribute on the form tag is the URL that the form will submit to when then user clicks the submit button -->
                 <form method="get" action="/auth/registerSubmit">
+   <div class="mt-3">
+               <label for="firstName" class="form-label">FirstName</label>
+               <input type="text" class="form-control" id="first" name="firstName" value="${form.firstName}">
+              </div>
+           <div class="mt-3">
+                       <label for="lastName" class="form-label">Last Name</label>
+                       <input type="text" class="form-control" id="lastName" name="lastName" value="${form.lastName}">
+             </div>
+                <div class="mt-3">
+                            <label for="address" class="form-label">Address</label>
+                            <input type="text" class="form-control" id="address" name="address" value="${form.address}">
+            </div>
+            <div class="mt-3">
+                              <label for="city" class="form-label">City</label>
+                                         <input type="text" class="form-control" id="city" name="city" value="${form.city}">
+                             </div>
+             <div class="mt-3">
+                      <label for="areaCode" class="form-label">Area Code</label>
+                         <input type="text" class="form-control" id="areaCode" name="areaCode" value="${form.areaCode}">
+             </div>
 
+           <div class="mt-3">
+                  <label for="phone" class="form-label">Phone</label>
+                             <input type="text" class="form-control" id="phone" name="phone" value="${form.phone}">
+                 </div>
                     <div class="mt-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" value="${form.email}">
+                        <input type="text" class="form-control" id="email" name="email"  value="${form.email}">
                     </div>
                     <c:if test="${errors.hasFieldErrors('email')}">
                         <div style="color:red">

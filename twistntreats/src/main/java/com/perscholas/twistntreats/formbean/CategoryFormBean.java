@@ -12,7 +12,7 @@ public class CategoryFormBean {
     private Integer id;
     private String categoryName;
     private String categoryDescription;
-   // private Integer createdBy;
+   private Integer createdBy;
     private Date createdOn;
 
 }

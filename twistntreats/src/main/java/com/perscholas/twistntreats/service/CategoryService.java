@@ -28,7 +28,7 @@ public class CategoryService {
         Category category= new Category();
         category.setCategoryName(form.getCategoryName());
         category.setCategoryDescription(form.getCategoryDescription());
-       // category.setCreatedBy(1);
+        category.setCreatedBy(form.getCreatedBy());
         category.setCreatedOn(form.getCreatedOn());
 
         categoryDao.save(category);

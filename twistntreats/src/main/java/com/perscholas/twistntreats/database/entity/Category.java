@@ -3,6 +3,7 @@ package com.perscholas.twistntreats.database.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -23,8 +24,8 @@ public class Category {
     @Column(name="category_description")
     private String categoryDescription;
 
-    /*@Column(name="created_by")
-    private Integer createdBy;*/
+    @Column(name="created_by")
+    private Integer createdBy;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name="created_on",columnDefinition = "DATE")
@@ -34,5 +35,7 @@ public class Category {
     private void onCreate()
     {
         createdOn=new Date();
+        createdBy=1;
+       // createdBy= SecurityContextHolder.getContext().getAuthentication().getName());
     }
 }

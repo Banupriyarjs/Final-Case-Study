@@ -23,12 +23,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-               <!-- <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link" href="/auth/login">Login</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/auth/register">Sign up</a>
-                </li> -->
+                </li>
            <li class="nav-item">
                     <a class="nav-link" href="/category/create">Add Category</a>
                 </li>
