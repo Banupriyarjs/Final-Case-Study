@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Spring Boot Application </title>
+    <title>Twist 'n' Treats </title>
 
     <link href="/pub/css/global-style.css" rel="stylesheet">
 
@@ -23,13 +23,18 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item">
+               <!-- <li class="nav-item">
                     <a class="nav-link" href="/auth/login">Login</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/auth/register">Sign up</a>
+                </li> -->
+           <li class="nav-item">
+                    <a class="nav-link" href="/category/create">Add Category</a>
                 </li>
-
+           <li class="nav-item">
+                    <a class="nav-link" href="/product/create">Add Product</a>
+                </li>
             </ul>
         </div>
     </div>
