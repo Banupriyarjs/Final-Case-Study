@@ -29,7 +29,7 @@ public class CategoryService {
         category.setCategoryName(form.getCategoryName());
         category.setCategoryDescription(form.getCategoryDescription());
        // category.setCreatedBy(1);
-        //category.setCreatedOn(date);
+        category.setCreatedOn(form.getCreatedOn());
 
         categoryDao.save(category);
 

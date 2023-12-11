@@ -24,8 +24,15 @@ public class Category {
     private String categoryDescription;
 
     /*@Column(name="created_by")
-    private Integer createdBy;
+    private Integer createdBy;*/
 
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name="created_on",columnDefinition = "DATE")
-     private LocalDate createdOn;*/
+     private Date createdOn;
+
+    @PrePersist
+    private void onCreate()
+    {
+        createdOn=new Date();
+    }
 }
