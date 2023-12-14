@@ -2,7 +2,9 @@ package com.perscholas.twistntreats.controller;
 
 import com.perscholas.twistntreats.database.entity.User;
 import com.perscholas.twistntreats.formbean.RegisterUserFormBean;
+import com.perscholas.twistntreats.security.AuthenticatedUserService;
 import com.perscholas.twistntreats.service.UserService;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,10 @@ public class AuthController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private AuthenticatedUserService authenticatedUserService;
+
     @GetMapping("/auth/login")
     public ModelAndView login()
     {
@@ -33,7 +39,7 @@ public class AuthController {
         return response;
     }
     @GetMapping("/auth/registerSubmit")
-    public ModelAndView registerSubmit(@Valid RegisterUserFormBean form, BindingResult bindingResult)
+    public ModelAndView registerSubmit(@Valid RegisterUserFormBean form, BindingResult bindingResult, HttpSession session)
     {
         if(bindingResult.hasErrors())
         {
@@ -51,6 +57,7 @@ public class AuthController {
         }
         log.info("######################### In register user - no error found #########################");
          User u=userService.createNewUser(form);
+         authenticatedUserService.authenticateNewUser(session,u.getEmail(),u.getPassword());
          ModelAndView response=new ModelAndView();
          response.setViewName("redirect:/");
          return response;

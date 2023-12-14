@@ -28,14 +28,14 @@ public class Category {
     private Integer createdBy;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="created_on",columnDefinition = "DATE")
-     private Date createdOn;
+    @Column(name="created_date",columnDefinition = "DATE")
+     private Date createdDate;
 
     @PrePersist
     private void onCreate()
     {
-        createdOn=new Date();
-        createdBy=1;
-       // createdBy= SecurityContextHolder.getContext().getAuthentication().getName());
+        createdDate=new Date();
+        //createdBy=1;
+      //  createdBy= SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     }
 }

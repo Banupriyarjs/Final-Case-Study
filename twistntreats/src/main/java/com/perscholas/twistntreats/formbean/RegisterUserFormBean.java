@@ -37,4 +37,5 @@ public class RegisterUserFormBean {
     private String phone;
 
     private Date createdDate;
-}
+
+    }

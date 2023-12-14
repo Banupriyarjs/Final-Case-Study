@@ -43,5 +43,7 @@ public class User {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name="created_date",columnDefinition ="DateTime" )
     private Date createdDate;
+
+
 }
 
