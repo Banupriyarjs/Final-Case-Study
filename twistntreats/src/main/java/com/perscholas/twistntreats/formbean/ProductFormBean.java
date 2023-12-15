@@ -15,4 +15,6 @@ public class ProductFormBean {
     private Integer categoryId;
 
     private double price;
+
+    private String productUrl;
 }

@@ -36,4 +36,7 @@ public class Product {
     @Column(name="created_date")
     private Date createdDate;
 
+    @Column(name="product_url")
+    private String productUrl;
+
 }

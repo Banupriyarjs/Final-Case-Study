@@ -13,7 +13,7 @@
 <section class="pt-5 pb-5">
     <div class="container">
      <!-- the action attribute on the form tag is the URL that the form will submit to when then user clicks the submit button -->
-        <form method="get" action="/product/createSubmit">
+        <form method="post" action="/product/createSubmit"  enctype="multipart/form-data">
         <input type="hidden" name="id" value="${form.id}">
             <div class="mt-3">
                 <label for="productName" class="form-label">Product Name</label>
@@ -27,12 +27,13 @@
               </div>
                <div class="mt-3">
                     <label for="category" class="form-label">Select Category</label>
-                       <select name="categoryList" id="categoryList" class="form-control">
+                       <select name="categoryId" id="categoryId" class="form-control">
 
                           <option value="0"><-------Select-------></option>
                           <c:if test="${not empty categoryList}">
                               <c:forEach items="${categoryList}" var="list">
-                                  <option value="${list.id}">${list.categoryName}
+                                  <option value="${list.id}" text="${list.id}">${list.categoryName}
+                                   <c.out value="${list.id}" />
                                     </option>
                                </c:forEach>
                               </c:if>
@@ -41,8 +42,8 @@
                 </div>
 
                 <div class="mt-3">
-                    <label for="city" class="form-label">City</label>
-                     <input type="text" class="form-control" id="city" name="city"  >
+                    <label for="city" class="form-label">Price</label>
+                     <input type="text" class="form-control" id="price" name="price"  >
                 </div>
 
                    <div class="mt-3">
