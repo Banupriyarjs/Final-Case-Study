@@ -16,9 +16,15 @@ public CategoryService categoryService;
 
 
     @GetMapping("/category/create")
-    public ModelAndView viewCategory() {
+    public ModelAndView createCategory() {
         log.debug("In Mapping method");
         ModelAndView response = new ModelAndView("category/create");
+        return response;
+    }
+    @GetMapping("/category/View")
+    public ModelAndView viewCategory() {
+        log.debug("In Mapping method");
+        ModelAndView response = new ModelAndView("category/view");
         return response;
     }
     @GetMapping("/category/createSubmit")
@@ -28,7 +34,7 @@ public CategoryService categoryService;
 
         categoryService.createCategory(form);
         log.debug("Create Category - create submit ");
-        response.setViewName("redirect:/category/create");
+        response.setViewName("redirect:/category/view");
         return response;
 
     }

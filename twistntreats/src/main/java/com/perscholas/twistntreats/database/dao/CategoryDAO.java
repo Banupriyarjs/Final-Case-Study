@@ -12,8 +12,8 @@ public interface CategoryDAO extends JpaRepository<Category,Long> {
     //To fetch Category by id
     public Category findById(Integer id);
 
-    //To fetch all categories
-    /*@Query("Select c from Category")
-    List<Category> findCategories();*/
+    // To fetch all categories
+    @Query("Select c from Category c")
+    List<Category> findCategories();
 
 }
