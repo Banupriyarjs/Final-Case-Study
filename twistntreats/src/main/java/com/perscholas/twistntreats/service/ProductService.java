@@ -24,6 +24,9 @@ public class ProductService {
 
     public Product createProduct(ProductFormBean form, String imageUrl)
     {
+
+        System.out.println(imageUrl);
+
         Product product = new Product();
         User user=authenticatedUserService.loadCurrentUser();
 
@@ -31,7 +34,7 @@ public class ProductService {
         System.out.println(form.getProductDescription());
         System.out.println(form.getCategoryId());
         System.out.println(form.getPrice());
-        System.out.println(form.getId());
+        System.out.println(user.getId());
         System.out.println(imageUrl);
 
 
@@ -42,6 +45,8 @@ public class ProductService {
         product.setCreatedDate(new Date());
         product.setCreatedBy(user.getId());
         product.setProductUrl(imageUrl);
+
+
         return productDAO.save(product);
 
     }

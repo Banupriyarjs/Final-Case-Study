@@ -29,6 +29,8 @@ public class SecurityConfig {
         http.authorizeRequests()
                 .requestMatchers(
                         new AntPathRequestMatcher("/admin/**"),
+                        new AntPathRequestMatcher("/order/**"),
+                        new AntPathRequestMatcher("/cart/**"),
                         new AntPathRequestMatcher("/user/**")).authenticated()
                 .anyRequest().permitAll();
         // this is telling us the URL for the login page and the URL to submit the login form

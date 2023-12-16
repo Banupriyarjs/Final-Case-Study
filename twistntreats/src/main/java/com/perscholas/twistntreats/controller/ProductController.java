@@ -1,6 +1,7 @@
 package com.perscholas.twistntreats.controller;
 
 import com.perscholas.twistntreats.database.dao.CategoryDAO;
+import com.perscholas.twistntreats.database.dao.ProductDAO;
 import com.perscholas.twistntreats.database.entity.Category;
 import com.perscholas.twistntreats.database.entity.Product;
 import com.perscholas.twistntreats.formbean.ProductFormBean;
@@ -12,9 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -29,6 +28,8 @@ public class ProductController {
 @Autowired
 private CategoryDAO categoryDao;
 
+@Autowired
+private ProductDAO productDAO;
 @Autowired
 private ProductService productService;
     @GetMapping("/product/create")
@@ -74,7 +75,42 @@ private ProductService productService;
         ModelAndView response = new ModelAndView();
         response.setViewName("redirect:/product/create");
         return response;
+    }
+    @GetMapping("/product/viewproductlist")
+    public ModelAndView viewProductList()
+    {
+        Integer categoryId=null;
+        ModelAndView response = new ModelAndView();
+        response.setViewName("product/viewproductlist");
 
+        List<Category> categoryList=categoryDao.findCategories();
+        response.addObject("categoryList",categoryList);
+        System.out.println(categoryList.size());
+
+        List<Product> productList=productDAO.findAll();
+        response.addObject("productList",productList);
+        System.out.println(productList.size());
+                return response;
+    }
+    @RequestMapping("/product/detail")
+    public ModelAndView viewProductDetails(@RequestParam Integer id)
+    {
+        ModelAndView response = new ModelAndView();
+        response.setViewName("product/detail");
+        Product product=productDAO.findById(id);
+
+       response.addObject("product",product);
+     /*   ProductFormBean form=new ProductFormBean();
+
+        if(product!=null)
+        {
+            form.setProductName(product.getProductName());
+            form.setProductDescription(product.getProductDescription());
+            form.setProductUrl(product.getProductUrl());
+            form.setPrice(product.getPrice());
+        }*/
+        return response;
     }
 }
+
 

@@ -36,6 +36,8 @@
            <li class="nav-item">
                     <a class="nav-link" href="/product/create">Add Product</a>
                 </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/product/viewproductlist">Menu</a                  </li>
             </ul>
         </div>
     </div>
