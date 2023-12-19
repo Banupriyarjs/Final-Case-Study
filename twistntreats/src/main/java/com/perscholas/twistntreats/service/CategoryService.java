@@ -22,19 +22,21 @@ public class CategoryService {
     private CategoryDAO categoryDao;
     @Autowired
     private AuthenticatedUserService authenticatedUserService;
-      public void createCategory(CategoryFormBean form)
-    {
-        log.debug("id "+form.getId());
-        log.debug("Category Name "+form.getCategoryName());
-        log.debug("Category Description "+form.getCategoryDescription());
+
+    public void createCategory(CategoryFormBean form) {
+        log.debug("id " + form.getId());
+        log.debug("Category Name " + form.getCategoryName());
+        log.debug("Category Description " + form.getCategoryDescription());
         //log.debug("Created By "+form.getCreatedBy());
+        Category category = categoryDao.findById(form.getId());
+        if (category == null) {
+            User user = authenticatedUserService.loadCurrentUser();
+            category = new Category();
+            category.setCreatedBy(user.getId());
 
-      User user=authenticatedUserService.loadCurrentUser();
-
-        Category category= new Category();
+        }
         category.setCategoryName(form.getCategoryName());
         category.setCategoryDescription(form.getCategoryDescription());
-        category.setCreatedBy(user.getId());
         category.setCreatedDate(new Date());
         category.setStatus("A");
 

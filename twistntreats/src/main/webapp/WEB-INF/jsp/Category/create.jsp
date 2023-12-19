@@ -16,7 +16,7 @@
             <div class="col-6">
                 <!-- the action attribute on the form tag is the URL that the form will submit to when then user clicks the submit button -->
                 <form method="get" action="/category/createSubmit" >
-
+                  <input type="hidden" name="id" value="${form.id}">
                     <div class="mt-3">
                         <label for="categoryname" class="form-label">Category Name</label>
                         <input type="text" class="form-control" id="categoryName" name="categoryName" value="${form.categoryName}">

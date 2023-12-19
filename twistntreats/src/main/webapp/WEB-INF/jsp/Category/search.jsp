@@ -42,6 +42,8 @@
                     <td>${counter.count}</td>
                     <td>${category.categoryName}</td>
                     <td>${category.categoryDescription}</td>
+                    <td><a href="/category/edit/${category.id}">Edit</td>
+                    <td><a href="/category/delete/${category.id}">Delete</td>
                     <td> <input class="btn btn-primary" type="submit" value="Edit"></td>
                      <td> <input class="btn btn-primary" type="submit" value="Delete"></td>
 
