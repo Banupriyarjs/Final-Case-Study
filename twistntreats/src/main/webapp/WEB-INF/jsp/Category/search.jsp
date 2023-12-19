@@ -17,15 +17,14 @@
 
     <form action="/category/search">
       <label for="First Name">Category Name : </label>
-         <input type="text" name="categoryname"  value="${firstname}">
+         <input type="text" name="categoryname"  value="${categoryname}">
                <input class="btn btn-primary" type="submit" value="Submit">
     </form>
 
     <!-- Main Content -->
     <div class="container p-3 my-5 bg-light border border-primary">
         <!-- DataTable Code starts -->
-      <c:if test="${not empty categoryList}">
-
+      <c:if test="${not empty categories}">
         <table id="example" class="table table-striped nowrap" style="width:100%">
             <thead>
                 <tr>
@@ -37,7 +36,7 @@
 
                 </tr>
             </thead>
-            <c:forEach items="${categoryList}" var="category" varStatus="counter">
+            <c:forEach items="${categories}" var="category" varStatus="counter">
             <tbody>
                 <tr>
                     <td>${counter.count}</td>

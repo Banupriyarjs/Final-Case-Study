@@ -14,5 +14,6 @@ public class CategoryFormBean {
     private String categoryDescription;
    private Integer createdBy;
     //private Date createdDate;
+    private String status;
 
 }

@@ -45,16 +45,17 @@ public class CategoryController {
 
             }
             @GetMapping("category/search")
-            public ModelAndView searchCategory(String categoryName)
+            public ModelAndView searchCategory(String categoryname)
             {
+               //We are setting this to empty string to pull up the category list during intial page load
+                if(categoryname==null)
+                    categoryname="";
                 ModelAndView response= new ModelAndView("category/search");
                 log.debug("In Search Category ModelAndView");
-              /*  List<Category> categories=categoryDao.findByCategoryName(categoryName+"%");
-                response.addObject("category",categories);
-                response.addObject("categoryname",categoryName);*/
-                List<Category> categoryList=categoryDao.findCategories();
-                response.addObject("categoryList",categoryList);
-                System.out.println(categoryList.size());
+                List<Category> categories=categoryDao.findByCategoryName(categoryname+"%");
+                response.addObject("categories",categories);
+                 response.addObject("categoryname",categoryname);
+
                 return response;
     }
 }

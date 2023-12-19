@@ -11,8 +11,8 @@ import java.util.List;
 public interface CategoryDAO extends JpaRepository<Category,Long> {
     //To fetch Category by id
 
-    /*@Query("SELECT c FROM Category WHERE status='A' AND categoryName LIKE:categoryName")
-    List<Category>  findByCategoryName(String categoryName);*/
+    @Query("SELECT c FROM Category c WHERE status='A' AND categoryName LIKE:categoryName")
+    List<Category>  findByCategoryName(String categoryName);
 
     // To fetch all categories
     @Query("Select c from Category c WHERE status='A'")
