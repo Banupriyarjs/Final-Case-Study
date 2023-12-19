@@ -32,7 +32,9 @@ public class CategoryService {
         if (category == null) {
             User user = authenticatedUserService.loadCurrentUser();
             category = new Category();
-            category.setCreatedBy(user.getId());
+          //  if(user!=null) {
+                category.setCreatedBy(user.getId());
+            //}
 
         }
         category.setCategoryName(form.getCategoryName());

@@ -83,5 +83,20 @@ public class CategoryController {
         response.addObject("form",form);
         return response;
     }
+    @GetMapping("/category/delete/{id}")
+    public ModelAndView deleteCategory(@PathVariable int id)
+    {
+        ModelAndView response=new ModelAndView("category/search");
+        int value =categoryDao.deleteById(id);
+        System.out.println(value);
+        if(value==1) {
+            response.setViewName("redirect:/category/search");
+        }
+        else
+        {
+            response.setViewName("error/404");
+        }
+         return response;
+    }
 
 }
