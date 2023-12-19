@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface CategoryDAO extends JpaRepository<Category,Long> {
@@ -26,5 +27,14 @@ public interface CategoryDAO extends JpaRepository<Category,Long> {
     // To fetch all categories
     @Query("Select c from Category c WHERE status='A'")
     List<Category> findCategories();
+
+    /*@Query(value = "select count(p.id) 'count',c.category_name 'name' from categories c left join products p on p.category_id=c.id group by c.id,c.category_name",nativeQuery = true)
+    List<Object[]> findProductCount();
+    */
+    @Query(value = "SELECT c.id 'categoryId',category_name 'categoryName',p.id 'productId', p.product_name 'productName',p.product_url 'productUrl'" +
+                   "FROM  categories c INNER JOIN products p on p.category_id=c.id " +
+                    "WHERE c.status='A' AND p.status='A' " +
+                    "ORDER BY c.id",nativeQuery = true)
+    List<Object[]> findProductCount();
 
 }

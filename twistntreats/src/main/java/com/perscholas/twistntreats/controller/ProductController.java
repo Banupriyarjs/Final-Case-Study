@@ -21,6 +21,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @Slf4j
@@ -82,6 +83,20 @@ private ProductService productService;
         Integer categoryId=null;
         ModelAndView response = new ModelAndView();
         response.setViewName("product/viewproductlist");
+
+        List<Object[]> productCount=categoryDao.findProductCount();
+
+        System.out.println(productCount.size()+"product count");
+       for(Object[] p :productCount)
+        {
+           Integer count=(Integer)p[0];
+            String name=(String)p[1];
+            System.out.println(count+" "+name);
+            System.out.println(p[0]);
+
+        }
+
+
 
         List<Category> categoryList=categoryDao.findCategories();
         response.addObject("categoryList",categoryList);
