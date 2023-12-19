@@ -36,6 +36,7 @@ public class CategoryService {
         category.setCategoryDescription(form.getCategoryDescription());
         category.setCreatedBy(user.getId());
         category.setCreatedDate(new Date());
+        category.setStatus("A");
 
         categoryDao.save(category);
 

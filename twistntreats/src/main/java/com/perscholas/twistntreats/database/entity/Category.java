@@ -31,6 +31,8 @@ public class Category {
     @Column(name="created_date",columnDefinition = "DATE")
      private Date createdDate;
 
+    @Column(name="status")
+    private String status;
     @PrePersist
     private void onCreate()
     {
