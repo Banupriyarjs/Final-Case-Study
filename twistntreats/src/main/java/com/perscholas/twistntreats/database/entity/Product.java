@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -16,6 +17,9 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private Integer id;
+
+    @OneToMany(mappedBy="product",fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+    private List<OrderDetail> orderDetails;
 
     @Column(name="product_name")
     private String productName;
