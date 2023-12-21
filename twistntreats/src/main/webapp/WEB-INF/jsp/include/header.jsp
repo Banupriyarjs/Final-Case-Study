@@ -19,6 +19,10 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap5.min.css">
 
+     <!-- Added for Add To Cart Page -->
+     <link href="/pub/css/cart.css" rel="stylesheet">
+         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 </head>
 <body>
 
@@ -33,9 +37,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/auth/login">Login</a>
                 </li>
+           <sec:authorize access="!isAuthenticated()">
                 <li class="nav-item">
                     <a class="nav-link" href="/auth/register">Sign up</a>
                 </li>
+             </sec:authorize>
                 <li class="nav-item">
                     <a class="nav-link" href="/category/create">Add Category</a>
                 </li>
@@ -46,7 +52,16 @@
                     <a class="nav-link" href="/product/create">Add Product</a>
                 </li>
               <li class="nav-item">
-                  <a class="nav-link" href="/product/viewproductlist">Menu</a                  </li>
+                  <a class="nav-link" href="/product/viewproductlist">Menu</a>
+              </li>
+             <sec:authorize access="isAuthenticated()">
+                <li class="nav-item">
+                  <a class="nav-link" href="/auth/logout">Logout</a>
+               </li>
+                   <li class="nav-item">
+                 <a class="nav-link" href=""><sec:authentication property="principal.username" /></a>
+            </li>
+             </sec:authorize>
             </ul>
         </div>
     </div>
