@@ -1,8 +1,12 @@
 package com.perscholas.twistntreats.database.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
+@Getter
+@Setter
 
 @Entity
 @Table(name="order_details")
@@ -26,10 +30,15 @@ public class OrderDetail {
 
     @Column(name="quantity")
     private Integer quantity;
+
     @Column(name="status")
     private String status;
+
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name="created_date")
     private Date createdDate;
+
+    @Column(name="total_price",columnDefinition = "Decimal(10.2)")
+    private Double totalPrice;
 
 }

@@ -1,8 +1,12 @@
 package com.perscholas.twistntreats.database.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
+@Getter
+@Setter
 
 @Entity
 @Table(name="orders")
@@ -15,6 +19,7 @@ public class Order {
     @ManyToOne(fetch=FetchType.LAZY,optional = false)
     @JoinColumn(name="customer_id", nullable=false)
     private User user;
+
     @Column(name="order_date")
     @Temporal(TemporalType.TIMESTAMP)
     private Date orderDate;
