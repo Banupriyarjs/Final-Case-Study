@@ -54,7 +54,7 @@
          var categoryId = "${product.categoryId}";
          var price = "${product.price}";
 
-         var addToCartUrl = "/order/addtocart?prodid=" + productId + "&catid=" + categoryId + "&price=" + price + "&quantity=" + quantityValue;
+         var addToCartUrl = "/cart/addtocart?prodid=" + productId + "&catid=" + categoryId + "&price=" + price + "&quantity=" + quantityValue;
 
          // Redirect to the addToCartUrl or use it as needed
          window.location.href = addToCartUrl;

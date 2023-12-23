@@ -9,6 +9,7 @@ import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Date;
 
@@ -89,7 +90,8 @@ public class OrderService {
 
             orderDAO.save(order);
             orderDetailDAO.save(orderDetail);
-
+            ModelAndView response = new ModelAndView();
+            response.setViewName("redirect:/cart/viewcart");
         }
 
     }

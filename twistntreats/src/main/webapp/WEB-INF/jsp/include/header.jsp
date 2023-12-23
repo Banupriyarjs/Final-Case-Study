@@ -54,6 +54,9 @@
               <li class="nav-item">
                   <a class="nav-link" href="/product/viewproductlist">Menu</a>
               </li>
+              <li class="nav-item">
+                   <a class="nav-link" href="/cart/viewcart">Cart</a>
+               </li>
              <sec:authorize access="isAuthenticated()">
                 <li class="nav-item">
                   <a class="nav-link" href="/auth/logout">Logout</a>
