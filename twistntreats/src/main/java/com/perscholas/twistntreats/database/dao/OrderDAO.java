@@ -16,7 +16,7 @@ public interface OrderDAO extends JpaRepository<Order,Long> {
     //if the query returns null then you create a new order with status cart
     //and save it to the database
 
-  /* @Query("SELECT o FROM Order o WHERE o.status='CART' AND o.customerId=:userId")
-    public Order findCartList(Integer userId);*/
+   @Query("SELECT o FROM Order o WHERE o.status='CART' AND o.user.id=:userId")
+    public Order findCartList(Integer userId);
 
 }
