@@ -56,42 +56,44 @@ public class OrderService {
 
         User user = authenticatedUserService.loadCurrentUser();
 
-        Order orderExists = orderDAO.findById(form.getId());
+        Order order = orderDAO.findCartList(user.getId());
 
-        System.out.println(user.getId() + "User ID");
-        Integer OrderId = form.getId();
-
-        System.out.println(odform.getQuantity() + "quantity");
-
-        //OrderDetailFormBean odform=new OrderDetailFormBean();
-        OrderDetail orderProductExists = orderDetailDAO.findProductsExsistForOrder(form.getId(), productId);
-
+        OrderDetail orderProductExists = orderDetailDAO.findProductsExsistForOrder(order.getId(), productId);
 
         Product product = productDAO.findById(productId);
+
         Category category = categoryDAO.findById(categoryId);
 
 
-        if (orderProductExists == null && product != null && category != null) {
-
-            Order order = new Order();
-            order.setUser(user);
-            order.setStatus("CART");
-            order.setOrderDate(new Date());
+        if (user != null && product != null && category != null) {
 
 
-            OrderDetail orderDetail = new OrderDetail();
-            orderDetail.setOrder(order);
-            orderDetail.setProduct(product);
-            orderDetail.setCategory(category);
-            orderDetail.setStatus("A");
-            orderDetail.setQuantity(quantity);
-            orderDetail.setTotalPrice(quantity * price);
-            orderDetail.setCreatedDate(new Date());
+                if (order == null) {
+                    order = new Order();
+                    order.setUser(user);
+                    order.setStatus("CART");
+                    order.setOrderDate(new Date());
+                }
 
-            orderDAO.save(order);
-            orderDetailDAO.save(orderDetail);
-            ModelAndView response = new ModelAndView();
-            response.setViewName("redirect:/cart/viewcart");
+            if (orderProductExists == null) {
+
+                OrderDetail orderDetail = new OrderDetail();
+                orderDetail.setOrder(order);
+                orderDetail.setProduct(product);
+                orderDetail.setCategory(category);
+                orderDetail.setStatus("A");
+                orderDetail.setCreatedDate(new Date());
+                orderDetail.setQuantity(quantity);
+                orderDAO.save(order);
+                orderDetailDAO.save(orderDetail);
+                ModelAndView response = new ModelAndView();
+                response.setViewName("redirect:/cart/viewcart");
+            }
+            else {
+
+                orderProductExists.setQuantity(orderProductExists.getQuantity()+quantity);
+                orderDetailDAO.save(orderProductExists);
+            }
         }
 
     }

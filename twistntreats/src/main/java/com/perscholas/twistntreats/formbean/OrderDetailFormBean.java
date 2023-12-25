@@ -19,7 +19,7 @@ public class OrderDetailFormBean {
 
     private String status;
 
-    private Double totalPrice;
+
 
 
 

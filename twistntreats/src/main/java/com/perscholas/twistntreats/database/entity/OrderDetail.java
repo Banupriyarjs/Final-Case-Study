@@ -38,7 +38,6 @@ public class OrderDetail {
     @Column(name="created_date")
     private Date createdDate;
 
-    @Column(name="total_price",columnDefinition = "Decimal(10.2)")
-    private Double totalPrice;
+
 
 }
