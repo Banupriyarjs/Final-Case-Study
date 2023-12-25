@@ -54,11 +54,14 @@ public class OrderService {
 
     public void createOrder(OrderFormBean form, OrderDetailFormBean odform, Integer productId, Integer categoryId, Integer quantity, Double price) {
 
+        Integer orderId = null;
         User user = authenticatedUserService.loadCurrentUser();
 
         Order order = orderDAO.findCartList(user.getId());
-
-        OrderDetail orderProductExists = orderDetailDAO.findProductsExsistForOrder(order.getId(), productId);
+        if (order != null) {
+            orderId = order.getId();
+        }
+        OrderDetail orderProductExists = orderDetailDAO.findProductsExsistForOrder(orderId, productId);
 
         Product product = productDAO.findById(productId);
 
@@ -68,12 +71,12 @@ public class OrderService {
         if (user != null && product != null && category != null) {
 
 
-                if (order == null) {
-                    order = new Order();
-                    order.setUser(user);
-                    order.setStatus("CART");
-                    order.setOrderDate(new Date());
-                }
+            if (order == null) {
+                order = new Order();
+                order.setUser(user);
+                order.setStatus("CART");
+                order.setOrderDate(new Date());
+            }
 
             if (orderProductExists == null) {
 
@@ -88,13 +91,23 @@ public class OrderService {
                 orderDetailDAO.save(orderDetail);
                 ModelAndView response = new ModelAndView();
                 response.setViewName("redirect:/cart/viewcart");
-            }
-            else {
+            } else {
 
-                orderProductExists.setQuantity(orderProductExists.getQuantity()+quantity);
+                orderProductExists.setQuantity(orderProductExists.getQuantity() + quantity);
                 orderDetailDAO.save(orderProductExists);
             }
         }
 
+    }
+
+    public void updateOrder(Integer orderId) {
+        User user = authenticatedUserService.loadCurrentUser();
+        Order order = orderDAO.findCartList(user.getId());
+
+
+        if (user != null && order != null) {
+            order.setStatus("processed");
+            order.setOrderDate(new Date());
+        }
     }
 }

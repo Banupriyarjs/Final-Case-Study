@@ -82,6 +82,13 @@ public class CartController {
 
         return response;
     }
+   @RequestMapping("/cart/placeorder")
+    public ModelAndView saveOrder(@RequestParam Integer id)
+    {
+        ModelAndView response = new ModelAndView("cart/view");
+        orderService.updateOrder(id);
+        return null;
+    }
 
 
 }

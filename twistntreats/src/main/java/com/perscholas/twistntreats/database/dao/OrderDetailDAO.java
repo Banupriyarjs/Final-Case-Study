@@ -14,7 +14,7 @@ public interface OrderDetailDAO extends JpaRepository<OrderDetail, Long> {
     @Query("SELECT  od FROM OrderDetail od WHERE od.order.id=:orderId AND od.product.id=:productId AND od.status='A' ")
     public OrderDetail findProductsExsistForOrder(Integer orderId, Integer productId);
 
-    @Query(value = "SELECT o.id 'orderId',p.product_url 'productUrl',p.product_name 'productName',\n" +
+    @Query(value = "SELECT o.id 'orderId',o.customer_id 'userId',p.product_url 'productUrl',p.product_name 'productName',\n" +
             "od.quantity 'quantity', p.price 'price', (od.quantity*p.price) 'totalPrice'\n" +
             "FROM\n" +
             "orders o \n" +
