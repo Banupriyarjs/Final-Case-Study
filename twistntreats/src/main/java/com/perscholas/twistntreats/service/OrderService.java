@@ -31,28 +31,7 @@ public class OrderService {
     @Autowired
     private AuthenticatedUserService authenticatedUserService;
 
-   /* public void createOrderDetail(Integer orderID,Order order)
-    {
-       OrderDetailFormBean form=new OrderDetailFormBean();
-       OrderDetail productExists= orderDetailDAO.findProductsExsistForOrder(orderID,form.getProductId());
-       Product product=productDAO.findById(form.getProductId());
-       Category category=categoryDAO.findById(form.getCategoryId());
-       if(productExists==null)
-       {
-           OrderDetail orderDetail=new OrderDetail();
-           orderDetail.setOrder(order);
-           orderDetail.setProduct(product);
-           orderDetail.setCategory(category);
-           orderDetail.setStatus("A");
-           orderDetail.setQuantity(form.getQuantity());
-           orderDetail.setTotalPrice(form.getQuantity()* form.getTotalPrice());
-           orderDetail.setCreatedDate(new Date());
-       }
-
-    }
-*/
-
-    public void createOrder(OrderFormBean form, OrderDetailFormBean odform, Integer productId, Integer categoryId, Integer quantity, Double price) {
+       public void createOrder(OrderFormBean form, OrderDetailFormBean odform, Integer productId, Integer categoryId, Integer quantity, Double price) {
 
         Integer orderId = null;
         User user = authenticatedUserService.loadCurrentUser();
@@ -100,14 +79,31 @@ public class OrderService {
 
     }
 
-    public void updateOrder(Integer orderId) {
-        User user = authenticatedUserService.loadCurrentUser();
-        Order order = orderDAO.findCartList(user.getId());
+    public void updateOrder(Integer customerId) {
+
+        Order order = orderDAO.findCartList(customerId);
 
 
-        if (user != null && order != null) {
-            order.setStatus("processed");
+        if (order != null) {
+            order.setStatus("PROCESSED");
             order.setOrderDate(new Date());
+            orderDAO.save(order);
         }
+    }
+
+    public void deleteCartItems(Integer orderId,Integer productId)
+    {
+        OrderDetail orderProductExists = orderDetailDAO.findProductsExsistForOrder(orderId, productId);
+          System.out.println(orderId);
+          System.out.println(productId);
+        if(orderProductExists!=null)
+        {
+            System.out.println(orderId);
+            System.out.println(productId);
+            orderProductExists.setStatus("D");
+            orderProductExists.setCreatedDate(new Date());
+            orderDetailDAO.save(orderProductExists);
+        }
+
     }
 }

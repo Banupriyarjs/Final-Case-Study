@@ -83,12 +83,19 @@ public class CartController {
         return response;
     }
    @RequestMapping("/cart/placeorder")
-    public ModelAndView saveOrder(@RequestParam Integer id)
+    public ModelAndView saveOrder(@RequestParam Integer userId)
     {
         ModelAndView response = new ModelAndView("cart/view");
-        orderService.updateOrder(id);
+        orderService.updateOrder(userId);
         return null;
     }
 
-
+    @RequestMapping("/cart/delete")
+    public ModelAndView deleteItems(@RequestParam Integer orderId,@RequestParam Integer productId)
+    {
+        log.info("########In Delete Cart #########");
+        ModelAndView response = new ModelAndView("cart/view");
+        orderService.deleteCartItems(orderId,productId);
+        return null;
+    }
 }
