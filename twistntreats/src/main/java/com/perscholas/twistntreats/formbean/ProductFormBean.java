@@ -17,4 +17,6 @@ public class ProductFormBean {
     private double price;
 
     private String productUrl;
+
+    private String status;
 }

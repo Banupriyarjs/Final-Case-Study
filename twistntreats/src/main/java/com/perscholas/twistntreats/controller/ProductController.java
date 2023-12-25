@@ -21,6 +21,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Controller
@@ -115,15 +116,19 @@ private ProductService productService;
         Product product=productDAO.findById(id);
 
        response.addObject("product",product);
-     /*   ProductFormBean form=new ProductFormBean();
-
-        if(product!=null)
-        {
-            form.setProductName(product.getProductName());
-            form.setProductDescription(product.getProductDescription());
-            form.setProductUrl(product.getProductUrl());
-            form.setPrice(product.getPrice());
-        }*/
+       return response;
+    }
+    @GetMapping("/product/search")
+    public ModelAndView searchProduct(String productname) {
+        //We are setting this to empty string to pull up the category list during intial page load
+        if (productname == null)
+            productname = "";
+        ModelAndView response = new ModelAndView("product/search");
+        log.debug("In Search Product ModelAndView");
+        List<Map<String, Object>> products = productDAO.findByProductName("%"+productname+"%");
+        response.addObject("products", products);
+        response.addObject("productname", productname);
+        System.out.println(products.size());
         return response;
     }
 }

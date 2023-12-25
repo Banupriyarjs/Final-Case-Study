@@ -61,7 +61,7 @@ public class CartController {
         response.addObject("userId",user.getId());
 
 
-        for(Object o:cartList)
+      /*  for(Object o:cartList)
         {
             System.out.println(o.toString());
         }
@@ -76,7 +76,7 @@ public class CartController {
             }
 
             System.out.println("}");
-        }
+        }*/
 
 
 

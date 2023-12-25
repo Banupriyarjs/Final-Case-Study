@@ -42,5 +42,8 @@ public class Product {
 
     @Column(name="product_url")
     private String productUrl;
+    
+    @Column(name="status")
+    private String status;
 
 }

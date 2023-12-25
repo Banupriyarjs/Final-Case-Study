@@ -45,6 +45,7 @@ public class ProductService {
         product.setCreatedDate(new Date());
         product.setCreatedBy(user.getId());
         product.setProductUrl(imageUrl);
+        product.setStatus("A");
 
 
         return productDAO.save(product);
