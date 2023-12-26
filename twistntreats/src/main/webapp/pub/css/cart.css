@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Spartan', sans-serif;
+}
+
+h1{
+    font-size: 50px;
+    line-height: 64px;
+    color: #222
+}
+h2{
+    font-size: 46px;
+    line-height: 54px;
+    color: 222;
+}
+h4{
+    font-size: 20px;
+    color: #222;
+}
+h6{
+    font-weight: 700;
+    font-size: 12px;
+}
+p{
+    font-size: 16px;
+    color: #465b52;
+    margin:15px 0 20px 0;
+}
+.section-p1{
+    padding: 40px 80px;
+}
+.section-p2{
+    padding: px 5px;
+}
+.section-m1{
+    margin: 40px 0;
+
+}
+body{
+    width: 100%;
+}
+#header{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background: #E3E6F3;
+    box-shadow : 0 5px 15px rgba(0,0,0,0.06);
+    z-index: 999;
+    position:sticky;
+    top:0;
+    left:0;
+
+}
+ .normal{
+    font-size: 14px;
+    font-weight: 600;
+    padding:15px 30px;
+    color: #000;
+    background-color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: 0.2s;
+
+}
+
+/* Cart page */
+/*This will display a horizontal scroll bar to achieve responsive web design*/
+#divcart{
+    margin-bottom: 30px;
+    border:1px solid #e2e9e1;
+    padding:30px;
+
+}
+
+#cart{
+    overflow-x: auto;
+
+}
+#cart table{
+    width: 100%;
+   border-collapse: collapse;
+    table-layout: fixed;
+    white-space: nowrap;
+   /* align-items: center;*/
+}
+
+#cart table img{
+    width:120px;
+}
+#cart table td:nth-child(1) {
+    width:150px;
+    text-align: center;
+
+}
+#cart table td:nth-child(2) {
+    width:250px;
+    text-align: center;
+
+
+}
+#cart table td:nth-child(3) {
+    width:250px;
+    text-align: center;
+
+}
+#cart table td:nth-child(4),
+#cart table td:nth-child(5),
+#cart table td:nth-child(6){
+    width:150px;
+    text-align: center;
+
+}
+#cart table td:nth-child(3) input {
+    width:70px;
+    text-align: 10px 5px 10px 15px;
+
+}
+#cart table thead{
+    border : 1px solid #e2e9e1;
+    border-left:none;
+    border-right:none;
+
+}
+
+#cart table thead td{
+    font-weight:700;
+    text-transform:uppercase;
+    font-size:13px;
+    padding:18px 0;
+
+}
+#cart table tbody tr td{
+    padding-top:25px;
+
+}
+#cart table tbody td{
+    font-size:13px
+}
+#cart-add{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+}
+#coupon{
+    width:50%;
+    margin-bottom: 30px;
+}
+#coupon h3{
+    padding-bottom:15px;
+
+}
+#coupon input{
+    padding:10px 20px;
+    outline:none;
+    width:60%;
+    margin-right:10px;
+    border:1px solid #e2e9e1;
+}
+#coupon button,
+#subtotal button{
+    background-color: #088178;
+    color:#fff;
+    padding:12px 20px;
+}
+#subtotal{
+    width:30%;
+
+    margin-bottom: 30px;
+    border:1px solid #e2e9e1;
+    padding:30px;
+}
+#subtotal table{
+    border-collapse: collapse;
+    width:100%;
+    margin-bottom:20px;
+}
+#subtotal table td{
+    width:50%;
+    border:1px solid #e2e9e1;
+    padding:10px;
+    font-size: 13px;;
+
+}
+#subtotal h3{
+    padding-bottom:15px;
+}
+.normal{
+    font-family: 'Spartan', sans-serif;
+
+}
+

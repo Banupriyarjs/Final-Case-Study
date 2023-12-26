@@ -1,6 +1,7 @@
 package com.perscholas.twistntreats.service;
 
 import com.perscholas.twistntreats.database.dao.ProductDAO;
+import com.perscholas.twistntreats.database.entity.Category;
 import com.perscholas.twistntreats.database.entity.Product;
 import com.perscholas.twistntreats.database.entity.User;
 import com.perscholas.twistntreats.formbean.ProductFormBean;
@@ -24,18 +25,14 @@ public class ProductService {
 
     public Product createProduct(ProductFormBean form, String imageUrl)
     {
+        Product product = productDAO.findById(form.getId());
 
-        System.out.println(imageUrl);
+        User user = authenticatedUserService.loadCurrentUser();
+        if (product == null) {
 
-        Product product = new Product();
-        User user=authenticatedUserService.loadCurrentUser();
+            product = new Product();
 
-        System.out.println(form.getProductName());
-        System.out.println(form.getProductDescription());
-        System.out.println(form.getCategoryId());
-        System.out.println(form.getPrice());
-        System.out.println(user.getId());
-        System.out.println(imageUrl);
+        }
 
 
         product.setProductName(form.getProductName());
