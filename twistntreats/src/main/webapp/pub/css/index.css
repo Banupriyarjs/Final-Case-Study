@@ -88,13 +88,12 @@ h1{
     background: #ececec;
     padding: 0 20px 0 20px;
 }
-header{
+/*header{
  font-weight: 100;
     font-size: 25px;
-     background: rgba(37, 95, 156, 0.937);
-    color: #fff;
+
     border-radius:10px;
-}
+}*/
 #lgmain{
     display: flex;
     justify-content: center;
@@ -102,7 +101,7 @@ header{
     min-height: 100vh;
 }
 .side-image{
-    background-image: url("/pub/images/ChoclateDonut.jpg");
+    background-image: url("/pub/images/stack-donuts.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -148,9 +147,12 @@ img{
     left: 30px;
 }
 .input-box header{
-    font-weight: 700;
+   font-weight: 700;
+    font-size: 25px;
+    border-radius:10px;
     text-align: center;
-    margin-bottom: 45px;
+    /*margin-bottom: 45px;*/
+    margin-bottom: 105px;
 }
 .input-field{
     display: flex;
@@ -239,3 +241,25 @@ span a:hover{
         width: 100%;
     }
 }
+
+
+/*Registration page*/
+
+#regmain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#regrow{
+  width:  900px;
+  height:1000px;
+  border-radius: 10px;
+  background: #fff;
+  padding: 0px;
+  box-shadow: 5px 5px 10px 1px rgba(0,0,0,0.2);
+  margin-top:40px;
+  margin-bottom:40px;
+}
+

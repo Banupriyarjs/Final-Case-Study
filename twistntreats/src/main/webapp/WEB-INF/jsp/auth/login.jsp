@@ -30,7 +30,7 @@
                         <input type="submit" class="submit" value="Submit">
                    </div>
                    <div class="login">
-                    <span>Don't have an account? <a href="#">Register here</a></span>
+                    <span>Don't have an account? <a  href="/auth/register">Register here</a></span>
                    </div>
                 </div>
             </div>
