@@ -4,8 +4,8 @@
 <section >
 <form method="post" action="/auth/loginSubmit">
  <div class="wrapper">
-    <div class="container main">
-        <div class="row">
+    <div class="container main" id="lgmain">
+        <div class="row" id="lgrow">
             <div class="col-md-6 side-image">
 
                 <!-------------      image     ------------->
@@ -27,9 +27,9 @@
                     </div>
                    <div class="input-field">
 
-                        <input type="submit" class="submit" value="Login">
+                        <input type="submit" class="submit" value="Submit">
                    </div>
-                   <div class="signin">
+                   <div class="login">
                     <span>Don't have an account? <a href="#">Register here</a></span>
                    </div>
                 </div>
