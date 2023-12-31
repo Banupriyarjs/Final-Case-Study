@@ -88,12 +88,12 @@ h1{
     background: #ececec;
     padding: 0 20px 0 20px;
 }
-/*header{
+header{
  font-weight: 100;
     font-size: 25px;
 
     border-radius:10px;
-}*/
+}
 #lgmain{
     display: flex;
     justify-content: center;
@@ -140,12 +140,7 @@ i{
   width: 330px;
   box-sizing: border-box;
 }
-img{
-    width: 35px;
-    position: absolute;
-    top: 30px;
-    left: 30px;
-}
+
 .input-box header{
    font-weight: 700;
     font-size: 25px;
@@ -218,7 +213,7 @@ span a:hover{
     text-decoration: underline;
     color: #000;
 }
-@media only screen and (max-width: 768px){
+/*@media only screen and (max-width: 768px){
     .side-image{
         border-radius: 10px 10px 0 0;
     }
@@ -241,7 +236,7 @@ span a:hover{
         width: 100%;
     }
 }
-
+*/
 
 /*Registration page*/
 
