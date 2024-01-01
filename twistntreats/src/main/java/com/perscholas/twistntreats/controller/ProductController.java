@@ -52,8 +52,8 @@ public class ProductController {
     @PostMapping("/product/createSubmit")
     public ModelAndView saveProduct(@Valid ProductFormBean form, BindingResult bindingResult,
                                     @RequestParam("file") MultipartFile file) {
+        String fileUrl=null;
 
-        String fileUrl = null;
         if (bindingResult.hasErrors()) {
             log.info("***** In Create Submit - has errors ************************");
             ModelAndView response = new ModelAndView("product/create");
@@ -65,19 +65,20 @@ public class ProductController {
             return response;
         }
         log.info("***** In Create Submit - no errors found ************************");
-        File f = new File("./src/main/webapp/pub/images/" + file.getOriginalFilename());
+        if(!file.isEmpty()) {
+            File f = new File("./src/main/webapp/pub/images/" + file.getOriginalFilename());
 
 
-        try (OutputStream outputStream = new FileOutputStream(f.getAbsolutePath())) {
-            IOUtils.copy(file.getInputStream(), outputStream);
-        } catch (Exception e) {
+            try (OutputStream outputStream = new FileOutputStream(f.getAbsolutePath())) {
+                IOUtils.copy(file.getInputStream(), outputStream);
+            } catch (Exception e) {
 
 
-            e.printStackTrace();
+                e.printStackTrace();
+            }
+
+            fileUrl = "/pub/images/" + file.getOriginalFilename();
         }
-
-        fileUrl = "/pub/images/" + file.getOriginalFilename();
-
         Product product = productService.createProduct(form, fileUrl);
 
         ModelAndView response = new ModelAndView();

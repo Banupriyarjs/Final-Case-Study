@@ -298,3 +298,32 @@ h3,h5{
     -moz-box-shadow: -2px -1px 25px -4px rgba(0,0,0,0.75);
     transition: 0.5s;
 }
+
+
+/* Product Detail */
+.product-image{
+    background-image: url("/pub/images/VanillaSprinklesDonut.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px 0 0 10px;
+    position: relative;
+}
+#product-row{
+  width:  100%;
+  height:350px;
+  border-radius: 10px;
+  background: #fff;
+  padding: 0px;
+
+}
+.product-image h1
+{
+     font-weight: 500;
+      font-size: 100px;
+      border-radius:10px;
+      text-align: center;
+      font-family: 'ZCOOL KuaiLe', sans-serif;
+      color:blue;
+           /*margin-bottom: 45px;*/
+}

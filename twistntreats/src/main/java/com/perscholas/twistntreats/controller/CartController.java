@@ -34,11 +34,12 @@ public class CartController {
     @Autowired
     private AuthenticatedUserService authenticatedUserService;
     @RequestMapping("/cart/addtocart")
-    public void addToCart(@Valid OrderFormBean form, @Valid OrderDetailFormBean odform, BindingResult bindingResult, @RequestParam Integer prodid, @RequestParam Integer catid, @RequestParam Integer quantity, @RequestParam Double price) {
+    public ModelAndView addToCart(@Valid OrderFormBean form, @Valid OrderDetailFormBean odform, BindingResult bindingResult, @RequestParam Integer prodid, @RequestParam Integer catid, @RequestParam Integer quantity, @RequestParam Double price) {
 
+        ModelAndView response = new ModelAndView("order/addtocart");
         if (bindingResult.hasErrors()) {
             log.info("########In Add To Cart -Submit - has erros##########");
-            ModelAndView response = new ModelAndView("order/addtocart");
+
             for (ObjectError error : bindingResult.getAllErrors()) {
                 log.info("error : " + error.getDefaultMessage());
             }
@@ -47,13 +48,18 @@ public class CartController {
             //return response;
         }
         log.info("########In Add To Cart -Submit-no error found##########");
+
         orderService.createOrder(form, odform, prodid, catid, quantity, price);
+
+        response.setViewName("redirect:/cart/viewcart");
+        return response;
 
     }
 
     @GetMapping("/cart/viewcart")
     public ModelAndView viewCartItems()
     {
+       log.info("**********In View Cart ***********************");
         ModelAndView response= new ModelAndView("cart/view");
         User user = authenticatedUserService.loadCurrentUser();
         List<Map<String,Object>> cartList=orderDetailDAO.FetchCartList(user.getId());

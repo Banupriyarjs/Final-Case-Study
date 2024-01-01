@@ -31,7 +31,7 @@ public class OrderService {
     @Autowired
     private AuthenticatedUserService authenticatedUserService;
 
-       public void createOrder(OrderFormBean form, OrderDetailFormBean odform, Integer productId, Integer categoryId, Integer quantity, Double price) {
+    public void createOrder(OrderFormBean form, OrderDetailFormBean odform, Integer productId, Integer categoryId, Integer quantity, Double price) {
 
         Integer orderId = null;
         User user = authenticatedUserService.loadCurrentUser();
@@ -68,13 +68,13 @@ public class OrderService {
                 orderDetail.setQuantity(quantity);
                 orderDAO.save(order);
                 orderDetailDAO.save(orderDetail);
-                ModelAndView response = new ModelAndView();
-                response.setViewName("redirect:/cart/viewcart");
+
             } else {
 
                 orderProductExists.setQuantity(orderProductExists.getQuantity() + quantity);
                 orderDetailDAO.save(orderProductExists);
             }
+            
         }
 
     }

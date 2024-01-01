@@ -17,7 +17,7 @@
                                   <div class="card" style="width: 18rem;">
                                     <img style="max-height:200px" src="${product.productUrl}" class="card-img-top" alt="...">
                                         <div class="card-body text-center">
-                                            <h5 class="card-title"><a href="/product/details1?id=${product.id}">${product.productName}</a></h5>
+                                            <h5 class="card-title"><a href="/product/detail?id=${product.id}">${product.productName}</a></h5>
 
                                         </div>
 
