@@ -11,7 +11,7 @@
         </div>
     </div>
 <section>
-<form method="post" >
+<form method="post" id="myform" >
         <input type="hidden" name="id" value="${product.id}">
 
   <section id="proddetails" class="section-p1">
@@ -29,8 +29,8 @@
         <h2>$${product.price}</h2>
 
         <input type="number" value="1" id="quantity">
-       <!--  <button class="normal" id="addToCartBtn">Add To Cart</button> -->
-        <a href="#" id="addToCartBtn" class="btn btn-primary">Add to Cart</a>
+         <button class="normal" id="addToCartBtn">Add To Cart</button>
+        <!-- <a href="#" id="addToCartBtn" class="btn btn-primary">Add to Cart</a> -->
 
         <h4>Product Details</h4>
         <span>${product.productDescription}</span>
@@ -39,21 +39,35 @@
     </section>
 
  <script>
-     document.getElementById('addToCartBtn').addEventListener('click', function() {
 
+      document.getElementById('addToCartBtn').addEventListener('click', function(event) {
+         event.preventDefault();
          var quantityValue = document.getElementById('quantity').value;
-          alert(quantityValue);
          var productId = "${product.id}";
-         alert(productId);
          var categoryId = "${product.categoryId}";
-         alert(categoryId);
          var price = "${product.price}";
- alert(price);
          var addToCartUrl = "/cart/addtocart?prodid=" + productId + "&catid=" + categoryId + "&price=" + price + "&quantity=" + quantityValue;
-alert(addToCartUrl);
          // Redirect to the addToCartUrl or use it as needed
         window.location.href = addToCartUrl;
         window.location.replace(addToCartUrl);
      });
+
+
+  /*document.getElementById('myform').addEventListener('submit', function(event) {
+           event.preventDefault();
+          var quantityValue = document.getElementById('quantity').value;
+          var productId = "${product.id}";
+          var categoryId = "${product.categoryId}";
+          var price = "${product.price}";
+          var addToCartUrl = "/cart/addtocart?prodid=" + productId + "&catid=" + categoryId + "&price=" + price + "&quantity=" + quantityValue;
+          // Redirect to the addToCartUrl or use it as needed
+         //window.location.href = addToCartUrl;
+         window.location.replace(addToCartUrl);
+      });*/
+
+
+
+
+
  </script>
  <jsp:include page="../include/footer.jsp"/>
