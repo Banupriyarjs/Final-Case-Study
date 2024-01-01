@@ -93,7 +93,7 @@ public class CartController {
     {
         ModelAndView response = new ModelAndView("cart/view");
         orderService.updateOrder(userId);
-        return null;
+        return response;
     }
 
     @RequestMapping("/cart/delete")
