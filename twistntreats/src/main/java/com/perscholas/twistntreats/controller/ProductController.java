@@ -55,7 +55,7 @@ public class ProductController {
         String fileUrl=null;
 
         if (bindingResult.hasErrors()) {
-            log.info("***** In Create Submit - has errors ************************");
+            log.info("***** In Product Create Submit - has errors ************************");
             ModelAndView response = new ModelAndView("product/create");
             for (ObjectError error : bindingResult.getAllErrors()) {
                 log.info("error: " + error.getDefaultMessage());
@@ -64,7 +64,7 @@ public class ProductController {
             response.addObject("errors", bindingResult);
             return response;
         }
-        log.info("***** In Create Submit - no errors found ************************");
+        log.info("***** In Product Create Submit - no errors found ************************");
         if(!file.isEmpty()) {
             File f = new File("./src/main/webapp/pub/images/" + file.getOriginalFilename());
 
@@ -82,7 +82,7 @@ public class ProductController {
         Product product = productService.createProduct(form, fileUrl);
 
         ModelAndView response = new ModelAndView();
-        response.setViewName("redirect:/product/create");
+        response.setViewName("redirect:/product/search");
         return response;
     }
 

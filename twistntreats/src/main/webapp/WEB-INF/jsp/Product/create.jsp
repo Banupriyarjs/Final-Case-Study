@@ -1,64 +1,75 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../include/header.jsp"/>
 
-<section>
-    <div class="bg-light2 pt-5 pb-5">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h1 class="m-0">Create Product</h1>
+
+<section >
+  <form method="post" action="/product/createSubmit"  enctype="multipart/form-data">
+         <input type="hidden" name="id" value="${form.id}">
+
+ <div class="wrapper">
+    <div class="container main" id="regmain">
+        <div class="row" id="prodgrow">
+
+            <div class="col-md-6 side-image">
+
+                           <!-------------      image     ------------->
+
+
+                       </div>
+                       <div class="col-md-6 right">
+
+                <div class="input-box">
+
+                   <header>Create Product</header>
+                       <div class="mt-3">
+                         <label for="productName" class="form-label">Product Name</label>
+                        <input type="text" class="form-control" id="productName" name="productName" value="${form.productName}">
+
+                    </div>
+                   <div class="mt-3">
+                          <label for="productDescription" class="form-label">Product Description</label>
+                        <input type="text" class="form-control" id="productDescription" name="productDescription" value="${form.productDescription}">
+
+                    </div>
+                      <div class="mt-3">
+                        <label for="category" class="form-label">Select Category</label>
+                        <select name="categoryId" id="categoryId" class="form-control">
+                           <option value="0"><-------Select-------></option>
+                                <c:if test="${not empty categoryList}">
+                                     <c:forEach items="${categoryList}" var="list">
+                                      <option value="${list.id}" text="${list.id}" ${list.id eq form.categoryId ? 'selected' : ''}>${list.categoryName}</c.if>
+                                       <c.out value="${list.id}" />
+                                     </option>
+                                    </c:forEach>
+                                  </c:if>
+                           </select>
+                      </div>
+                 <div class="mt-3">
+                  <label for="price" class="form-label">Price</label>
+                     <input type="text" class="form-control" id="price" name="price" value="${form.price}">
+
+                  </div>
+                <div class="mt-3">
+                  <label for="imageUrl" class="form-label">Product URL</label>
+                    <c:if test="${not empty form.productUrl}">
+                     <img id="image" src="${form.productUrl}" alt="Image" style="width:100px">
+                    </c:if>
+                   <input type="file" class="form-control" id="file"  name="file" src="${form.productUrl}" />
+
+               </div>
+               <div class="input-field mt-5">
+                        <input type="submit" class="submit" value="Save">
+               </div>
+
+                </div>
             </div>
         </div>
     </div>
+</div>
+</form>
 </section>
-<section class="pt-5 pb-5">
-    <div class="container">
-     <!-- the action attribute on the form tag is the URL that the form will submit to when then user clicks the submit button -->
-        <form method="post" action="/product/createSubmit"  enctype="multipart/form-data">
-        <input type="hidden" name="id" value="${form.id}">
-        <h1>${form.id}</h1>
-            <div class="mt-3">
-                <label for="productName" class="form-label">Product Name</label>
-                <input type="text" class="form-control" name="productName" id="productName"  value="${form.productName}" >
 
-            </div>
 
-            <div class="mt-3">
-               <label for="productDescription" class="form-label">Product Description</label>
-               <input type="text" class="form-control" id="productDescription" name="productDescription" value="${form.productDescription}">
-              </div>
-               <div class="mt-3">
-                    <label for="category" class="form-label">Select Category</label>
-                       <select name="categoryId" id="categoryId" class="form-control">
 
-                          <option value="0"><-------Select-------></option>
-                          <c:if test="${not empty categoryList}">
-                              <c:forEach items="${categoryList}" var="list">
 
-                                <option value="${list.id}" text="${list.id}" ${list.id eq form.categoryId ? 'selected' : ''}>${list.categoryName}</c.if>
-                                   
-                                   <c.out value="${list.id}" />
-                                 </option>
-                               </c:forEach>
-                              </c:if>
-
-                             </select>
-                </div>
-
-                <div class="mt-3">
-                    <label for="city" class="form-label">Price</label>
-                     <input type="text" class="form-control" id="price" name="price" value="${form.price}" >
-                </div>
-
-                   <div class="mt-3">
-                                     <label for="imageUrl" class="form-label">Product URL</label>
-                                     <img id="image" src="${form.productUrl}" alt="Image" style="width:100px">
-                                      <input type="file" class="form-control" id="file"  name="file" src="${form.productUrl}" />
-                                 </div>
-
-                <div align="center">
-            <button type="submit" class="btn btn-primary" >Save</button>
-             </div>
-        </form>
-    </div>
-</section>
 <jsp:include page="../include/footer.jsp"/>

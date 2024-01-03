@@ -148,11 +148,11 @@ i{
 .right{
   display: flex;
   justify-content: center;
-  align-items: center;
+  /*align-items: center;*/
   position: relative;
 }
 .input-box{
-  width: 330px;
+  width: 350px;
   box-sizing: border-box;
 }
 
@@ -161,8 +161,8 @@ i{
     font-size: 25px;
     border-radius:10px;
     text-align: center;
-    /*margin-bottom: 45px;*/
-    margin-bottom: 105px;
+    margin-bottom: 45px;
+    margin-top: 105px;
 }
 .input-field{
     display: flex;
@@ -272,6 +272,18 @@ span a:hover{
   margin-top:40px;
   margin-bottom:40px;
 }
+
+#prodgrow{
+  width:  900px;
+  height:800px;
+  border-radius: 10px;
+  background: #fff;
+  padding: 0px;
+  box-shadow: 5px 5px 10px 1px rgba(0,0,0,0.2);
+  margin-top:40px;
+  margin-bottom:40px;
+}
+
 
 /* View Product Details */
 *{
