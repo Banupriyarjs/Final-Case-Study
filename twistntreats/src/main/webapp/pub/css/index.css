@@ -1,11 +1,21 @@
-/**{
+*{
     padding:0;
     margin:0;
     box-sizing: border-box;
 }
+
+#nav-section{
+ background-color: darksalmon;
+    width: 100%;
+    display:flex;
+    align-items: center;
+    justify-content:space-around;
+    color:darkslateblue;
+}
 .navbar-brand{
     font-size:2rem;
     color:black;
+
 }
 .navbar-brand:hover{
     color:black
@@ -39,8 +49,8 @@
     font-weight: 700;
     border-radius: 60px;
 }
-.main{
-  /*  background-image: url("/pub/images/donutbg.jpg");/*no-repeat;
+/*.main{
+    background-image: url("/pub/images/donutbg.jpg");/*no-repeat;
     background-repeat: no-repeat;
 
     background-size:cover;
@@ -115,6 +125,11 @@ header{
   background: #fff;
   padding: 0px;
   box-shadow: 5px 5px 10px 1px rgba(0,0,0,0.2);
+   margin-top:40px;
+   margin-bottom:40px;
+
+
+
 }
 .text{
     position: absolute;
@@ -326,4 +341,22 @@ h3,h5{
       font-family: 'ZCOOL KuaiLe', sans-serif;
       color:blue;
            /*margin-bottom: 45px;*/
+}
+
+
+/*footer
+.footer {
+  position: sticky;
+  bottom: 0;
+}
+*/
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
 }
