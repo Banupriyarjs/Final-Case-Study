@@ -2,8 +2,10 @@ package com.perscholas.twistntreats.controller;
 
 import com.perscholas.twistntreats.database.dao.OrderDAO;
 import com.perscholas.twistntreats.database.dao.OrderDetailDAO;
+import com.perscholas.twistntreats.database.dao.ProductDAO;
 import com.perscholas.twistntreats.database.entity.Order;
 import com.perscholas.twistntreats.database.entity.OrderDetail;
+import com.perscholas.twistntreats.database.entity.Product;
 import com.perscholas.twistntreats.database.entity.User;
 import com.perscholas.twistntreats.formbean.OrderDetailFormBean;
 import com.perscholas.twistntreats.formbean.OrderFormBean;
@@ -28,11 +30,22 @@ public class CartController {
 
     @Autowired
     private OrderService orderService;
+    @Autowired
+    private ProductDAO productDAO;
 
     @Autowired
     private OrderDetailDAO orderDetailDAO;
     @Autowired
     private AuthenticatedUserService authenticatedUserService;
+    @RequestMapping("/cart/detail")
+    public ModelAndView viewProductDetails(@RequestParam Integer id) {
+        ModelAndView response = new ModelAndView();
+        response.setViewName("product/detail");
+        Product product = productDAO.findById(id);
+
+        response.addObject("product", product);
+        return response;
+    }
     @RequestMapping("/cart/addtocart")
     public ModelAndView addToCart(@Valid OrderFormBean form, @Valid OrderDetailFormBean odform, BindingResult bindingResult, @RequestParam Integer prodid, @RequestParam Integer catid, @RequestParam Integer quantity, @RequestParam Double price) {
 

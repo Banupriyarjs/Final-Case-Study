@@ -114,7 +114,7 @@ public class ProductController {
         return response;
     }
 
-    @RequestMapping("/product/detail")
+    /*@RequestMapping("/product/detail")
     public ModelAndView viewProductDetails(@RequestParam Integer id) {
         ModelAndView response = new ModelAndView();
         response.setViewName("product/detail");
@@ -122,7 +122,7 @@ public class ProductController {
 
         response.addObject("product", product);
         return response;
-    }
+    }*/
 
     @GetMapping("/product/search")
     public ModelAndView searchProduct(String productname) {
