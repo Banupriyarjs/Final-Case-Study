@@ -329,12 +329,13 @@ h3,h5{
 
 /* Product Detail */
 .product-image{
-    background-image: url("/pub/images/VanillaSprinklesDonut.jpg");
+    background-image: url("/pub/images/donuts-detail.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 10px 0 0 10px;
     position: relative;
+
 }
 #product-row{
   width:  100%;
@@ -349,10 +350,9 @@ h3,h5{
      font-weight: 500;
       font-size: 100px;
       border-radius:10px;
-      text-align: center;
       font-family: 'ZCOOL KuaiLe', sans-serif;
-      color:blue;
-           /*margin-bottom: 45px;*/
+      color:white;
+
 }
 
 

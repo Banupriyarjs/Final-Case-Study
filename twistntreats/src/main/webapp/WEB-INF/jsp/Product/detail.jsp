@@ -2,11 +2,11 @@
 <jsp:include page="../include/header.jsp"/>
 
 <section>
-    <div class="bg-light2 pt-5 pb-5">
-        <div class="row" id="product-row">
-             <div class="col-12 product-image">
+    <div class="bg-light2 ">
+        <div class="row" id="product-row" align=center>
+             <div class="col-12 product-image" >
 
-                <h1 class="m-0">${product.productName}</h1>
+                <h1 class="m-5 py-5">${product.productName}</h1>
             </div>
         </div>
     </div>
@@ -24,7 +24,7 @@
     </div>
       <!-- This section is for showing details-->
        <div class="single-pro-details">
-        <h6>Home / T-Shirt</h6>
+       <!-- <h6>Home / T-Shirt</h6> -->
         <h4>${product.productName}</h4>
         <h2>$${product.price}</h2>
 
