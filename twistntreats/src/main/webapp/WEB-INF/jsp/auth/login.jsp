@@ -17,15 +17,15 @@
                 <div class="input-box">
 
                    <header>Login</header>
-                   <div class="input-field">
+                   <div class="input-field mt-5">
                         <input type="text" class="input" id="username" name="username" required="" autocomplete="off">
                         <label for="email">Email</label>
                     </div>
-                   <div class="input-field">
+                   <div class="input-field mt-5">
                         <input type="password" class="input" id="password" name="password" required="">
                         <label for="pass">Password</label>
                     </div>
-                   <div class="input-field">
+                   <div class="input-field mt-5" style="align-items: center;">
 
                         <input type="submit" class="submit" value="Submit">
                    </div>

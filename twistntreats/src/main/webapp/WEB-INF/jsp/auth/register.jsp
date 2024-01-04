@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../include/header.jsp"/>
 
-<section >
+<section class="maincontent" >
  <form method="get" action="/auth/registerSubmit">
  <div class="wrapper">
     <div class="container main" id="regmain">
@@ -13,7 +13,9 @@
 
 
                        </div>
-                       <div class="col-md-6 right">
+
+
+             <div class="col-md-6 right">
 
                 <div class="input-box">
 
@@ -129,7 +131,7 @@
                     </div>
                     </c:if>
 
-                   <div class="input-field mt-3">
+                   <div class="input-field mt-5"  style="align-items: center;" >
 
                         <input type="submit" class="submit" value="Submit">
                    </div>
