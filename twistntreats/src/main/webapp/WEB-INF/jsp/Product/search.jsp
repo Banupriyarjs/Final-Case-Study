@@ -10,15 +10,20 @@
         </div>
     </div>
 </section>
-<section>
+
 <section class="pt-5 pb-5">
-  <div class="container" align=center>
+  <div class="bg-light2 pt-5 pb-5" align=center>
 
 
     <form action="/product/search">
       <label for="Product Name Name">Product Name : </label>
-         <input type="text" name="productname"   value="${productname}" >
-               <input class="btn btn-primary" type="submit" value="Submit">
+         <input type="text" name="productname"   value="${productname}"  >
+          <div class="input-field mt-5 col-2">
+
+        <input type="submit" class="submit" value="Submit">
+      </div>
+
+
     </form>
 
     <!-- Main Content -->
@@ -46,10 +51,10 @@
                 <tr>
                     <td>${counter.count}</td>
                     <td>${row['productName']}</td>
-                    <td style="max-width:200px">${row['productDescription']}</td>
+                    <td style="max-width:200px ">${row['productDescription']}</td>
                     <td>${row['categoryName']}</td>
                    <td>${row['price']}</td>
-                     <td><img  style="max-width:100px" src="${row['productUrl']}" }></td>
+                     <td><img  style="max-width:70px;max-height:70px;align:center" src="${row['productUrl']}" }></td>
 
                     <td><a href="/product/edit/${row['productId']}">Edit</td>
                     <td><a href="/product/delete/${row['productId']}">Delete</td>
