@@ -18,15 +18,15 @@
                 <div class="input-box">
 
                    <header>Add Category</header>
-                       <div class="mt-3">
+                       <div class="mt-5">
                           <label for="categoryname" class="form-label">Category Name</label>
                            <input type="text" class="form-control" id="categoryName" name="categoryName" value="${form.categoryName}">
                        </div>
-                   <div class="mt-3">
+                   <div class="mt-5">
                       <label for="description" class="form-label">Description</label>
                      <input type="text" class="form-control" id="categoryDescription" name="categoryDescription" value="${form.categoryDescription}">
                    </div>
-                   <div class="input-field mt-5">
+                   <div class="input-field mt-5" style="align-items: center;">
 
                         <input type="submit" class="submit" value="Submit">
                    </div>

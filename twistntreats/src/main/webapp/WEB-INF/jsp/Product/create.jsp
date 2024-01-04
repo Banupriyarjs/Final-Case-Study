@@ -33,8 +33,8 @@
                     </div>
                       <div class="mt-3">
                         <label for="category" class="form-label">Select Category</label>
-                        <select name="categoryId" id="categoryId" class="form-control">
-                           <option value="0"><-------Select-------></option>
+                        <select name="categoryId" id="categoryId" class="form-control" align="center" >
+                           <option value="0">(Please select a Category)</option>
                                 <c:if test="${not empty categoryList}">
                                      <c:forEach items="${categoryList}" var="list">
                                       <option value="${list.id}" text="${list.id}" ${list.id eq form.categoryId ? 'selected' : ''}>${list.categoryName}</c.if>
@@ -49,7 +49,7 @@
                      <input type="text" class="form-control" id="price" name="price" value="${form.price}">
 
                   </div>
-                <div class="mt-3">
+                <div class="mt-4">
                   <label for="imageUrl" class="form-label">Product URL</label>
                     <c:if test="${not empty form.productUrl}">
                      <img id="image" src="${form.productUrl}" alt="Image" style="width:100px">
@@ -57,7 +57,7 @@
                    <input type="file" class="form-control" id="file"  name="file" src="${form.productUrl}" />
 
                </div>
-               <div class="input-field mt-5">
+               <div class="input-field mt-5" style="align-items: center;">
                         <input type="submit" class="submit" value="Save">
                </div>
 

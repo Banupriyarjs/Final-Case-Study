@@ -250,6 +250,10 @@ span a:hover{
     text-decoration: underline;
     color: #000;
 }
+select {
+    width: 400px;
+    text-align-last:center;
+ }
 /*@media only screen and (max-width: 768px){
     .side-image{
         border-radius: 10px 10px 0 0;
