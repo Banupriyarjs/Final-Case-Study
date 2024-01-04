@@ -49,14 +49,17 @@
                      <input type="text" class="form-control" id="price" name="price" value="${form.price}">
 
                   </div>
-                <div class="mt-4">
-                  <label for="imageUrl" class="form-label">Product URL</label>
-                    <c:if test="${not empty form.productUrl}">
+               <c:if test="${not empty form.productUrl}">
+                    <div class="mt-3">
+                    <label for="product" class="form-label">Product Image </label>
                      <img id="image" src="${form.productUrl}" alt="Image" style="width:100px">
-                    </c:if>
-                   <input type="file" class="form-control" id="file"  name="file" src="${form.productUrl}" />
+                   </div>
+                </c:if>
+             <div class="mt-4">
+                 <label for="imageUrl" class="form-label">Product URL</label>
+                <input type="file" class="form-control" id="file"  name="file" src="${form.productUrl}" />
+              </div>
 
-               </div>
                <div class="input-field mt-5" style="align-items: center;">
                         <input type="submit" class="submit" value="Save">
                </div>
