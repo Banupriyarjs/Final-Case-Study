@@ -3,7 +3,20 @@
 
 <section >
 <form method="post" action="/auth/loginSubmit">
- <div class="wrapper">
+
+  <c:if test="${param['error'] eq ''}">
+      <section class="pt-5">
+          <div class="container">
+              <div class="row justify-content-center">
+                  <div class="col-3">
+                      <div class="alert alert-danger w-100 mb-0">Invalid Username or Password</div>
+                  </div>
+              </div>
+          </div>
+      </section>
+  </c:if>
+
+   <div class="wrapper">
     <div class="container main" id="lgmain">
         <div class="row" id="lgrow">
             <div class="col-md-6 side-image">

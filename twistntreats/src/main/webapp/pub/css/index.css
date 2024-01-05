@@ -27,34 +27,38 @@ body
 }
 
 #nav-section{
- background-color: darksalmon;
+ background-color: #F59cad;
 
     width: 100%;
     display:flex;
     align-items: center;
     justify-content:space-around;
-    color:darkslateblue;
-   color:white
+    color:#713e48;
+
+
+
 }
 .navbar-brand{
     font-size:2rem;
-    color:black;
+    color:#713e48;
+     font-weight: 500;
 
 }
 .navbar-brand:hover{
-    color:black
+    color:white;
 }
+/*for the links in the menu */
 .nav-link{
     margin-right:10px;
     margin-left:10px;
-    color:black;
+    color:#010B13;
     /*ext-transform:uppercase;*/
-     font-family: 'Rubik',sans-serif;
-      font-weight: 200;
+     font-family: sans-serif;
+      font-weight: 600;
 
 }
 .nav-link:hover{
-    color:black;
+    color:white;
 }
 .search{
     height:40px;
@@ -63,14 +67,14 @@ body
     outline:none;
     margin-right:5px;
     font-family: 'Rubik',sans-serif;
-    border:2px solid rgb(248,26,92);
+    border:2px solid #713e48;
 }
 .btn0{
     height: 40px;
     width: 40%;
     outline: none;
     border: none;
-   background: rgb(248,26,92);
+   background:#713e48;
     color: white;
     font-weight: 700;
     border-radius: 60px;
@@ -121,7 +125,7 @@ h1{
     font-family: 'Poppins', sans-serif;
 }
 .wrapper{
-    background: #ececec;
+
     padding: 0 20px 0 20px;
 
 }
@@ -328,7 +332,8 @@ select {
     box-sizing: border-box;
 }
 body{
-        background-color: #f9f6f2;
+        background: #ececec;
+        color:#380606;
 }
 .card-img-top{
     border-radius: 50px;
