@@ -349,12 +349,19 @@ h3{
 }
 
 
+
+/* Menu */
+
+#product1 .pro .des{
+    text-align: start;
+    padding : 10px 0;
+}
 /* Featured Products */
-#product1{
+#product{
     text-align: center;
 
 }
-#product1 .pro-container{
+#product .pro-container{
     display: flex;
     justify-content: space-between;
     padding-top: 20px;

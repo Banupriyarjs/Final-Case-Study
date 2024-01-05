@@ -3,6 +3,13 @@
     margin:0;
     box-sizing: border-box;
 }
+.footer {
+    position: fixed;
+    /*bottom: 0;*/
+    width: 100%;
+    z-index: 1000;
+    height:100px;
+  }
 #indexsection{
     margin:0;
     padding:0;
@@ -17,16 +24,17 @@ body
 {
   height:auto
 
- background-color: pink;
 }
 
 #nav-section{
  background-color: darksalmon;
+
     width: 100%;
     display:flex;
     align-items: center;
     justify-content:space-around;
     color:darkslateblue;
+   color:white
 }
 .navbar-brand{
     font-size:2rem;
@@ -40,8 +48,9 @@ body
     margin-right:10px;
     margin-left:10px;
     color:black;
-    text-transform:uppercase;
-     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, 'Times New Roman', Times, serif;
+    /*ext-transform:uppercase;*/
+     font-family: 'Rubik',sans-serif;
+      font-weight: 200;
 
 }
 .nav-link:hover{
@@ -61,7 +70,7 @@ body
     width: 40%;
     outline: none;
     border: none;
-    background: rgb(248,26,92);
+   background: rgb(248,26,92);
     color: white;
     font-weight: 700;
     border-radius: 60px;
@@ -296,7 +305,7 @@ select {
   background: #fff;
   padding: 0px;
   box-shadow: 5px 5px 10px 1px rgba(0,0,0,0.2);
-  margin-top:40px;
+  margin-top:20px;
   margin-bottom:40px;
 }
 
@@ -341,9 +350,9 @@ body{
     background-color: black;
     border: none;
 }
-h3,h5{
+/*h3,h5{
     color: rgb(0, 91, 228);
-}
+}*/
 
 
 .card:hover{
@@ -389,13 +398,3 @@ h3,h5{
   bottom: 0;
 }
 */
-
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: red;
-  color: white;
-  text-align: center;
-}
