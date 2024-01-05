@@ -1,6 +1,6 @@
 body {
 
-    background: url(/pub/images/donutbg.jpg) center / cover;
+  /* background: url(/pub/images/donutbg.jpg) center / cover;*/
 
     justify-content: center;
     align-items: center;
@@ -8,7 +8,8 @@ body {
 
 main.table {
     width: 82vw;
-    height: 90vh;
+
+     min-height:80vh;
     background-color: #fff5;
 
     backdrop-filter: blur(7px);
