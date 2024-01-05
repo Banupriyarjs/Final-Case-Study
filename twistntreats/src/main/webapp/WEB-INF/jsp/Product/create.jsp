@@ -23,18 +23,18 @@
                    <header>Create Product</header>
                        <div class="mt-3">
                          <label for="productName" class="form-label">Product Name</label>
-                        <input type="text" class="form-control" id="productName" name="productName" value="${form.productName}">
+                        <input type="text" class="form-control" id="productName" name="productName" value="${form.productName}" required="">
 
                     </div>
                    <div class="mt-3">
                           <label for="productDescription" class="form-label">Product Description</label>
-                        <input type="text" class="form-control" id="productDescription" name="productDescription" value="${form.productDescription}">
+                        <input type="text" class="form-control" id="productDescription" name="productDescription" value="${form.productDescription}" required="">
 
                     </div>
                       <div class="mt-3">
                         <label for="category" class="form-label">Select Category</label>
-                        <select name="categoryId" id="categoryId" class="form-control" align="center" >
-                           <option value="0">(Please select a Category)</option>
+                        <select name="categoryId" id="categoryId" class="form-control" align="center" required>
+                           <option value="" disabled selected>(Please select a Category)</option>
                                 <c:if test="${not empty categoryList}">
                                      <c:forEach items="${categoryList}" var="list">
                                       <option value="${list.id}" text="${list.id}" ${list.id eq form.categoryId ? 'selected' : ''}>${list.categoryName}</c.if>
@@ -46,7 +46,7 @@
                       </div>
                  <div class="mt-3">
                   <label for="price" class="form-label">Price</label>
-                     <input type="text" class="form-control" id="price" name="price" value="${form.price}">
+                     <input type="text" class="form-control" id="price" name="price" value="${form.price}" required="">
 
                   </div>
                <c:if test="${not empty form.productUrl}">
