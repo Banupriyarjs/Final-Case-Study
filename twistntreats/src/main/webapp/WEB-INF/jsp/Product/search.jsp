@@ -3,15 +3,16 @@
 
 <section>
 <form action="/product/search">
-   <main class="table" id="customers_table" align=center>
+   <main class="table" id="products_table" align=center>
           <section class="table-header">
               <h1>Products</h1>
               <div class="inputgroup">
-               <input type="text" name="productname"  id="inputsearch"  >
+               <input type="text" name="productname"  id="productname" value="${productname}"  placeholder="Search Product..." >
 
                 <a href="/product/search"> <img src="/pub/images/search.png" alt="" ></a>
-              </div>
 
+              </div>
+          <!-- <input class="submit" type="submit" value="Submit"> -->
           </section>
           <c:if test="${not empty products}">
           <section class="table-body">
@@ -19,8 +20,8 @@
                   <thead>
                       <tr>
                           <th> No. </th>
-                          <th>Product </th>
-                          <th> Product Name </th>
+                          <th> Product </th>
+                          <th> Name </th>
                           <th> Description </th>
                           <th> Category </th>
                           <th> Price </th>

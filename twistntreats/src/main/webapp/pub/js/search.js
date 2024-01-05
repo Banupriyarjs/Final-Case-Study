@@ -1,10 +1,16 @@
 const search = document.querySelector('.inputgroup input'),
-    table_rows = document.querySelectorAll('tbody tr'),
-    table_headings = document.querySelectorAll('thead th');
+table_rows = document.querySelectorAll('tbody tr'),
+table_headings = document.querySelectorAll('thead th');
+
 
 // 1. Searching for specific data of HTML table
 search.addEventListener('input', searchTable);
+
 function searchTable() {
+
+   const columnNameToSearch = 'Name';
+
+   const columnIndex = getColumnIndex(columnNameToSearch);
 
     table_rows.forEach((row, i) => {
           // Get the third cell (td) in the row (index 2)
@@ -28,6 +34,15 @@ function searchTable() {
           visible_row.style.backgroundColor = (i % 2 == 0) ? 'transparent' : '#0000000b';
 
     });
+   }
+   function getColumnIndex(columnName) {
+       // Function to get the index of the column with the specified name
+       for (let i = 0; i < table_headings.length; i++) {
+           if (table_headings[i].textContent.trim().toLowerCase() === columnName.toLowerCase()) {
+               return i;
+           }
+       }
+       return -1; // Return -1 if the column name is not found
    }
 /*
 function searchTable() {
