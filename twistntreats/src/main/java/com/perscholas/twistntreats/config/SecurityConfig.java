@@ -32,6 +32,8 @@ public class SecurityConfig {
                 .requestMatchers(
                         new AntPathRequestMatcher("/admin/**"),
                         new AntPathRequestMatcher("/category/**"),
+                        new AntPathRequestMatcher("/product/create"),
+                        new AntPathRequestMatcher("/product/search"),
                         new AntPathRequestMatcher("/order/**"),
                         new AntPathRequestMatcher("/cart/**"),
                         new AntPathRequestMatcher("/user/**")).authenticated()
