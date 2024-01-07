@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Controller
@@ -41,7 +42,7 @@ public class CategoryController {
         ModelAndView response = new ModelAndView("/category/create");
 
         categoryService.createCategory(form);
-        log.debug("Create Category - create submit ");
+        log.debug("Category - create submit ");
         response.setViewName("redirect:/category/search");
         return response;
 
@@ -55,48 +56,50 @@ public class CategoryController {
         ModelAndView response = new ModelAndView("category/search");
         log.debug("In Search Category ModelAndView");
         List<Category> categories = categoryDao.findByCategoryName(categoryname + "%");
-        response.addObject("categories", categories);
+
+
+        //using stream to iterate through the list
+        List<Category> categoryList = categories.stream()
+                .map(category -> new Category(category.getId(), category.getCategoryName(), category.getCategoryDescription()))
+                .toList();
+        response.addObject("categoryList", categoryList);
         response.addObject("categoryname", categoryname);
+
 
         return response;
     }
+
     @GetMapping("/category/edit/{id}")
-    public ModelAndView editCategory(@PathVariable int id)
-    {
-        ModelAndView response=new ModelAndView("category/create");
-        Category category=categoryDao.findById(id);
+    public ModelAndView editCategory(@PathVariable int id) {
+        ModelAndView response = new ModelAndView("category/create");
+        Category category = categoryDao.findById(id);
 
-        CategoryFormBean form=new CategoryFormBean();
+        CategoryFormBean form = new CategoryFormBean();
 
-        if(category!=null)
-        {
+        if (category != null) {
             System.out.println(category.getId());
             form.setId(category.getId());
             form.setCategoryName(category.getCategoryName());
             form.setCategoryDescription(category.getCategoryDescription());
 
-        }
-        else
-        {
+        } else {
             log.warn("Category is not found ! ");
         }
-        response.addObject("form",form);
+        response.addObject("form", form);
         return response;
     }
+
     @GetMapping("/category/delete/{id}")
-    public ModelAndView deleteCategory(@PathVariable int id)
-    {
-        ModelAndView response=new ModelAndView("category/search");
-        int value =categoryDao.deleteById(id);
-        System.out.println(value);
-        if(value==1) {
+    public ModelAndView deleteCategory(@PathVariable int id) {
+        ModelAndView response = new ModelAndView("category/search");
+        int value = categoryDao.deleteById(id);
+        log.debug("Value" + value);
+        if (value == 1) {
             response.setViewName("redirect:/category/search");
-        }
-        else
-        {
+        } else {
             response.setViewName("error/404");
         }
-         return response;
+        return response;
     }
 
 }

@@ -14,7 +14,7 @@
               </div>
  <!-- <input class="submit" type="submit" value="Submit"> -->
           </section>
-          <c:if test="${not empty categories}">
+          <c:if test="${not empty categoryList}">
           <section class="table-body">
               <table >
                   <thead>
@@ -28,7 +28,7 @@
                     </tr>
                   </thead>
 
-                 <c:forEach items="${categories}" var="category" varStatus="counter">
+                 <c:forEach items="${categoryList}" var="category" varStatus="counter">
                   <tbody>
                        <tr>
                          <td>${counter.count}</td>
