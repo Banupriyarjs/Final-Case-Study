@@ -24,11 +24,12 @@
     </div>
       <!-- This section is for showing details-->
        <div class="single-pro-details">
-       <!-- <h6>Home / T-Shirt</h6> -->
+       <!-- <h6>Donuts</h6> -->
         <h4>${product.productName}</h4>
         <h2>$${product.price}</h2>
 
-        <input type="number" value="1" id="quantity">
+        <input type="number" value="1" id="quantity"  onchange="handleInputChange()">
+
          <button class="normal" id="addToCartBtn">Add To Cart</button>
         <!-- <a href="#" id="addToCartBtn" class="btn btn-primary">Add to Cart</a> -->
 
@@ -40,17 +41,38 @@
 
  <script>
 
-      document.getElementById('addToCartBtn').addEventListener('click', function(event) {
-         event.preventDefault();
+      // This function will be called when the Quantity input value changes
+        function handleInputChange() {
+            var inputValue = document.getElementById('quantity').value;
+            if(inputValue<=0)
+            alert('Quantity must be greater than zero');
+
+        }
+
+
+    document.getElementById('addToCartBtn').addEventListener('click', function(event) {
+        event.preventDefault();
          var quantityValue = document.getElementById('quantity').value;
          var productId = "${product.id}";
          var categoryId = "${product.categoryId}";
          var price = "${product.price}";
          var addToCartUrl = "/cart/addtocart?prodid=" + productId + "&catid=" + categoryId + "&price=" + price + "&quantity=" + quantityValue;
-         // Redirect to the addToCartUrl or use it as needed
-        window.location.href = addToCartUrl;
+
+      if(quantityValue<=0)
+      {
+          alert('Quantity must be greater than zero');
+          document.getElementById('quantity').focus();
+       }
+       else
+       {
+      //This is for hyperlink to direct
+      //window.location.href = addToCartUrl;
+
+       //This is for button control to redirect
         window.location.replace(addToCartUrl);
-     });
+        }
+   });
+
 
 
   /*document.getElementById('myform').addEventListener('submit', function(event) {
