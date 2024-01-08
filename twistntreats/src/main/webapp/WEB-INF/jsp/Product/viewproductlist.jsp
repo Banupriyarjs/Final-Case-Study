@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <jsp:include page="../include/header.jsp"/>
-
+<main class="classicMain">
 <section class="product">
     <c:if test="${not empty categoryList}" >
     <c:forEach items="${categoryList}" var="category">
@@ -16,7 +16,7 @@
                                   <div class="card" style="width: 18rem;">
                                     <img style="max-height:200px" src="${product['productUrl']}" class="card-img-top" alt="...">
                                         <div class="card-body text-center">
-                                            <h5 class="card-title"><a href="/cart/detail?id=${product['Id']}">${product['productName']}</a></h5>
+                                            <h6 class="card-title"><a href="/cart/detail?id=${product['Id']}">${product['productName']}</a></h6>
 
                                         </div>
 
@@ -33,5 +33,5 @@
    </c:if>
 
   </section>
-
+</main>
 <jsp:include page="../include/footer.jsp"/>
