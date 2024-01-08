@@ -10,6 +10,7 @@
     z-index: 1000;
     height:100px;
   }
+
 #indexsection{
     margin:0;
     padding:0;
@@ -79,6 +80,8 @@ body
     font-weight: 700;
     border-radius: 60px;
 }
+
+
 /*.main{
     background-image: url("/pub/images/donutbg.jpg");/*no-repeat;
     background-repeat: no-repeat;
@@ -354,6 +357,21 @@ body{
 .btn-primary:hover{
     background-color: black;
     border: none;
+}
+.container h1{
+   color:brown;
+   font-weight: 600;
+
+}
+.card-body a{
+    text-decoration: none;
+    font-weight: 600;
+    color:brown;
+}
+
+.card-body a:hover{
+    text-decoration:underline;
+
 }
 /*h3,h5{
     color: rgb(0, 91, 228);
