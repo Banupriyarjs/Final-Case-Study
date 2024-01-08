@@ -56,7 +56,7 @@
                    </div>
                 </c:if>
              <div class="mt-4">
-                 <label for="imageUrl" class="form-label">Product URL</label>
+                 <label for="imageUrl" class="form-label">Image URL</label>
                 <input type="file" class="form-control" id="file"  name="file" src="${form.productUrl}" />
               </div>
 

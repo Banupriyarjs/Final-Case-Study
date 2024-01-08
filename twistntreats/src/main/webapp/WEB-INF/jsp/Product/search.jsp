@@ -33,10 +33,10 @@
                        <c:forEach var="row" items="${products}" varStatus="counter">
                         <tr>
                         <td>${counter.count}</td>
-                            <td><img  style="max-width:70px;max-height:70px;align:center" src="${row['productUrl']}" }></td>
+                            <td><img style="max-width:200px" src="${row['productUrl']}" }></td>
 
-                          <td>${row['productName']}</td>
-                           <td style="max-width:200px ">${row['productDescription']}</td>
+                          <td style="max-width:200px ">${row['productName']}</td>
+                           <td style="max-width:300px ">${row['productDescription']}</td>
                               <td>${row['categoryName']}</td>
                               <td>$${row['price']}</td>
                               <td><a href="/product/edit/${row['productId']}">Edit</td>

@@ -55,7 +55,7 @@ main.table {
 
 .table-header .inputgroup img {
       width: 1.2rem;
-        height: 1.2rem;
+      height: 1.2rem;
 
 }
 
@@ -100,8 +100,8 @@ table {
 }
 
 td img {
-    width: 36px;
-    height: 36px;
+    width: 100px;
+    height: 100px;
     margin-right: .5rem;
     border-radius: 50%;
 
@@ -138,7 +138,7 @@ tbody tr.hide {
 }
 
 tbody tr:hover {
-    background-color: #fff6 !important;
+    background-color: #fff6;
 }
 
 tbody tr td,
