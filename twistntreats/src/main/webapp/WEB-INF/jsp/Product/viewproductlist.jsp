@@ -6,9 +6,8 @@
 <section class="product">
     <c:if test="${not empty categoryList}" >
     <c:forEach items="${categoryList}" var="category">
-
-        <div class="container py-5">
-             <h1 class="text-center">${category['categoryName']}</h1>
+        <div class="container py-5" >
+             <h1 class="text-center">${category['categoryName']}</h1><br>
              <div class="row row-cols-1 row-cols-md-4 g-4 ">
                   <c:if test="${not empty productList}" >
                     <c:forEach items="${productList}" var="product">

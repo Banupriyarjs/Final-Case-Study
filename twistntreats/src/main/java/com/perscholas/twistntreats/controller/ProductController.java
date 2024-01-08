@@ -89,6 +89,10 @@ public class ProductController {
     @GetMapping("/product/viewproductlist")
     public ModelAndView viewProductList(@RequestParam(required = false) String productName) {
         Integer categoryId = null;
+        log.debug(productName+"ProductName");
+        if(productName==null) {
+            productName = "";
+        }
         ModelAndView response = new ModelAndView();
         response.setViewName("product/viewproductlist");
 

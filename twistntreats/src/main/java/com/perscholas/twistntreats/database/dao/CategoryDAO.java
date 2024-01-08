@@ -31,11 +31,11 @@ public interface CategoryDAO extends JpaRepository<Category,Long> {
     List<Category> findCategories();
 
     //To view Product List
-    @Query(value ="  SELECT c.id 'Id',c.category_name 'categoryName' \n" +
+    @Query(value ="  SELECT DISTINCT c.id 'Id',c.category_name 'categoryName' \n" +
             "            FROM  categories c INNER JOIN products p on p.category_id=c.id \n" +
-            "            WHERE c.status='A' AND p.status='A' AND p.product_name LIKE '%lemon%' \n" +
+            "            WHERE c.status='A' AND p.status='A' AND p.product_name LIKE :productName \n" +
             "            ORDER BY c.id" ,nativeQuery = true)
-    List<Map<String, Object>> findCategoryForProduct( String productName);
+    List<Map<String, Object>> findCategoryForProduct( @Param("productName") String productName);
 
     @Query(value = "SELECT c.id 'categoryId',category_name 'categoryName',p.id 'productId', p.product_name 'productName',p.product_url 'productUrl'" +
             "FROM  categories c INNER JOIN products p on p.category_id=c.id " +

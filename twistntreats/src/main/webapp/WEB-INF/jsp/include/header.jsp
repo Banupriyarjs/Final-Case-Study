@@ -76,8 +76,8 @@
 
                               </sec:authorize>
                 </ul>
-                <form class="d-flex" role="search">
-                  <input class="px-2 search" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex" role="search" action="/product/viewproductlist">
+                  <input class="px-2 search" type="text"  name="productName" value="${productName}" aria-label="Search">
                   <button class="btn0"  type="submit">Search</button>
                 </form>
               </div>

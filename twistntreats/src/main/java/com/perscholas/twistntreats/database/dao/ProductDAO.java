@@ -28,7 +28,7 @@ public interface ProductDAO extends JpaRepository<Product, Long> {
             "            p.created_by 'createdBy', p.status 'status'\n" +
             "            FROM  products p  \n" +
             "            INNER JOIN categories c ON c.id=p.category_id\n" +
-            "            WHERE p.status='A' AND  product_name LIKE '%lemon%' AND c.status='A' ORDER BY c.id", nativeQuery = true)
+            "            WHERE p.status='A' AND  product_name LIKE :productName AND c.status='A' ORDER BY c.id", nativeQuery = true)
     List<Map<String, Object>> findProductsForCategory(@Param("productName") String productName);
 
     @Query(value = "SELECT p.id 'productId' ,p.product_name 'productName',p.product_description 'productDescription',\n" +
