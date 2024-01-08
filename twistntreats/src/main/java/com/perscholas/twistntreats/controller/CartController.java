@@ -32,11 +32,11 @@ public class CartController {
     private OrderService orderService;
     @Autowired
     private ProductDAO productDAO;
-
     @Autowired
     private OrderDetailDAO orderDetailDAO;
     @Autowired
     private AuthenticatedUserService authenticatedUserService;
+
     @RequestMapping("/cart/detail")
     public ModelAndView viewProductDetails(@RequestParam Integer id) {
         ModelAndView response = new ModelAndView();
@@ -46,6 +46,7 @@ public class CartController {
         response.addObject("product", product);
         return response;
     }
+
     @RequestMapping("/cart/addtocart")
     public ModelAndView addToCart(@Valid OrderFormBean form, @Valid OrderDetailFormBean odform, BindingResult bindingResult, @RequestParam Integer prodid, @RequestParam Integer catid, @RequestParam Integer quantity, @RequestParam Double price) {
 
@@ -70,14 +71,13 @@ public class CartController {
     }
 
     @GetMapping("/cart/viewcart")
-    public ModelAndView viewCartItems()
-    {
-       log.info("**********In View Cart ***********************");
-        ModelAndView response= new ModelAndView("cart/view");
+    public ModelAndView viewCartItems() {
+        log.info("**********In View Cart ***********************");
+        ModelAndView response = new ModelAndView("cart/view");
         User user = authenticatedUserService.loadCurrentUser();
-        List<Map<String,Object>> cartList=orderDetailDAO.FetchCartList(user.getId());
-        response.addObject("cartlist",cartList);
-        response.addObject("userId",user.getId());
+        List<Map<String, Object>> cartList = orderDetailDAO.FetchCartList(user.getId());
+        response.addObject("cartlist", cartList);
+        response.addObject("userId", user.getId());
 
 
       /*  for(Object o:cartList)
@@ -98,23 +98,22 @@ public class CartController {
         }*/
 
 
-
         return response;
     }
-   @RequestMapping("/cart/placeorder")
-    public ModelAndView saveOrder(@RequestParam Integer userId)
-    {
+
+    @RequestMapping("/cart/placeorder")
+    public ModelAndView saveOrder(@RequestParam Integer userId) {
         ModelAndView response = new ModelAndView("cart/view");
         orderService.updateOrder(userId);
         return response;
     }
 
     @RequestMapping("/cart/delete")
-    public ModelAndView deleteItems(@RequestParam Integer orderId,@RequestParam Integer productId)
-    {
+    public ModelAndView deleteItems(@RequestParam Integer orderId, @RequestParam Integer productId) {
         log.info("########In Delete Cart #########");
         ModelAndView response = new ModelAndView("cart/view");
-        orderService.deleteCartItems(orderId,productId);
-        return null;
+        orderService.deleteCartItems(orderId, productId);
+        response.setViewName("redirect:/cart/viewcart");
+        return response;
     }
 }

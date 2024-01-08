@@ -16,8 +16,10 @@
                 <img src="${row['productUrl']}"  alt="">
                  <div  class="content">
                     <h3>${row['productName']}</h3>
-                    <h5 id="price">Price : $${row['price']}</h5>
-                    <p class="unit"><h6>Quantity: <input type="number" id="quantity" value=${row['quantity']} ></h6></p>
+                    <h5 >Price : </h5><span class="price" id="price_${row['productId']}">$${row['price']}</span>
+                    <p class="unit"><h6>Quantity:
+                                   <input class="number-input" type="number" id="quantity_${row['productId']}" onchange="updateQuantity(this)"
+                               data-product-id="${row['productId']}" value="${row['quantity']}"></h6></p>
                     <c:set var="totalPrice" value="${totalPrice+row['quantity']*row['price']}" />
                     <c:set var="userId" value="${row['userId']}" />
                     <p class="btn-area">
@@ -31,13 +33,13 @@
         </c:forEach>
      </div>
             <div class="right-bar">
-                <p><span>Subtotal</span><span>$${totalPrice}</span></p>
+                <p class="subtotal-paragraph"><span>Subtotal</span><span id="subtotal" >$${totalPrice}</span></p>
                 <hr>
-                <p><span>Tax</span><span>Free</span></p>
+                <p > <span >Tax</span><span>Free</span></p>
                 <hr>
                 <p><span>Shipping</span><span>Free</span></p>
                 <hr>
-                <p><span><b>Total</b></span><span><b>$${totalPrice}</b></span></p>
+                <p><span><b>Total</b></span><span id="total"><b>$${totalPrice}</b></span></p>
                 <a href="/cart/placeorder?userId=${userId}"><i class="fa fa-shopping-cart"></i> Place Order</a>
 
 
@@ -51,15 +53,46 @@
 
 </main>
 
- <script>
-       function handleInputChange() {
-            var inputValue = document.getElementById('quantity').value;
-            if(inputValue<=0)
-            alert('Quantity must be greater than zero');
-            alert(document.getElementById('price').innerText);
 
-        }
-      document.getElementById('placeorder').addEventListener('click', function(event) {
+
+<script>
+         function updateQuantity(input) {
+                    var productId = input.dataset.productId;
+                    var quantity = input.value;
+
+                    //alert(productId);
+                    //alert(quantity);
+
+
+
+                    // Update price and total dynamically
+                    var price = parseFloat(document.getElementById('price_' + productId).innerText.replace('$', ''));
+                  // alert(price);
+                    var subtotalElement = document.getElementById('subtotal');
+                    var totalElement = document.getElementById('total');
+                    //alert(subtotalElement);
+                    //alert(totalElement);
+                    var subtotal = quantity * price;
+                    subtotalElement.innerText = '$' + subtotal.toFixed(2);
+
+                    // Update total by recalculating the total of all products
+                    var total = 0;
+                    var quantityInputs = document.querySelectorAll('[id^="quantity_"]');
+                    quantityInputs.forEach(function (quantityInput) {
+                        var id = quantityInput.dataset.productId;
+                        var price = parseFloat(document.getElementById('price_' + id).innerText.replace('$', ''));
+                        total += parseFloat(quantityInput.value) * price;
+                    });
+                    totalElement.innerText = '$' + total.toFixed(2);
+
+                   if(quantity<=0)
+                   alert('Please select a positive number');
+                  quantity.focus();
+                }
+
+
+        // addEventListener method to place order
+         document.getElementById('placeorder').addEventListener('click', function(event) {
          event.preventDefault();
          window.location.href("/cart/placeorder?userId=${userId}");
      });
