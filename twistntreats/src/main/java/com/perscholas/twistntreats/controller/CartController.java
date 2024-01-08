@@ -40,7 +40,7 @@ public class CartController {
     @RequestMapping("/cart/detail")
     public ModelAndView viewProductDetails(@RequestParam Integer id) {
         ModelAndView response = new ModelAndView();
-        response.setViewName("product/detail");
+        response.setViewName("cart/detail");
         Product product = productDAO.findById(id);
 
         response.addObject("product", product);
