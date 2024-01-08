@@ -1,6 +1,6 @@
 /****************************************Index Page***************************************************/
 
-.jumbotron {
+.index {
   background-image: url("/pub/images/donut2.avif");
   background-size: cover;
   margin-bottom:10px;
@@ -56,7 +56,7 @@
   flex: 0 0 50%;
 }
 
-h2 {
+#index-heading {
   color: #f8c3a5;
   font-family: 'Staatliches', cursive;
   font-size: 48px;
@@ -64,7 +64,7 @@ h2 {
   text-align: center;
 }
 
-p {
+#sub-heading {
   color: #666666;
   font-family: 'Architects Daughter', cursive;
   font-size: 18px;

@@ -1,11 +1,11 @@
 <jsp:include page="include/header.jsp"/>
 
 <main>
- <div class="jumbotron">
+ <div class="index">
     <div class="container" id="index-container" >
-      <h2>WELCOME TO Twist 'n' Treats</h2>
+      <h2 id="index-heading">WELCOME TO Twist 'n' Treats</h2>
        <p>Freshly Fried, Irresistible Rings,  Personalized Just For You!</p>
-      <p>Where every bite is a delight!</p>
+      <p id="sub-heading">Where every bite is a delight!</p>
       <a class="btn" id="btn-order" href="/product/viewproductlist">ORDER NOW</a>
     </div>
   </div>

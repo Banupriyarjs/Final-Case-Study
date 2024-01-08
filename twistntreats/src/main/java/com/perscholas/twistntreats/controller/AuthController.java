@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Slf4j
@@ -25,7 +26,8 @@ public class AuthController {
     private AuthenticatedUserService authenticatedUserService;
 
     @GetMapping("/auth/login")
-    public ModelAndView login()
+   public ModelAndView login()
+   // public ModelAndView login(@RequestParam(name = "error", required = false) String error)
     {
         ModelAndView response=new ModelAndView();
         response.setViewName("auth/login");

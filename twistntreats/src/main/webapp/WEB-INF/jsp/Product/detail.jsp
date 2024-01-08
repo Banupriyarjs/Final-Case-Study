@@ -50,7 +50,7 @@
          var price = "${product.price}";
          var addToCartUrl = "/cart/addtocart?prodid=" + productId + "&catid=" + categoryId + "&price=" + price + "&quantity=" + quantityValue;
 
-    
+
       //This is for hyperlink to direct
       //window.location.href = addToCartUrl;
 

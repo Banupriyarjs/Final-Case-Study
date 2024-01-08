@@ -41,7 +41,9 @@ public class ProductService {
         product.setPrice(form.getPrice());
         product.setCreatedDate(new Date());
         product.setCreatedBy(user.getId());
-        product.setProductUrl(imageUrl);
+        if(imageUrl!=null) {
+            product.setProductUrl(imageUrl);
+        }
         product.setStatus("A");
 
 

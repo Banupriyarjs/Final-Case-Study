@@ -21,11 +21,10 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableMethodSecurity(securedEnabled = true, prePostEnabled = true)
 public class SecurityConfig {
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception
-    {
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         // boilerplate code to disable csrf and authorize requests
 
-        http.csrf(csrf->csrf.disable());
+        http.csrf(csrf -> csrf.disable());
         // this block of code determines which requests are authenticated
 
         http.authorizeRequests()
@@ -54,6 +53,7 @@ public class SecurityConfig {
                 .logoutSuccessUrl("/"));
         return http.build();
     }
+
     @Bean(name = "passwordEncoder")
     public PasswordEncoder getPasswordEncoder() {
         return new BCryptPasswordEncoder();

@@ -45,7 +45,7 @@ public class CategoryDAOTest {
 
         Assertions.assertEquals(1, categories.size());
 
-        System.out.println(categories.size());
+
 
         Category category = categories.get(0);
         Assertions.assertNotNull(category.getId());

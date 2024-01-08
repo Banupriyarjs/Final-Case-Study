@@ -74,7 +74,7 @@ public class OrderService {
                 orderProductExists.setQuantity(orderProductExists.getQuantity() + quantity);
                 orderDetailDAO.save(orderProductExists);
             }
-            
+
         }
 
     }

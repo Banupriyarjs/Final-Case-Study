@@ -8,7 +8,7 @@
     <div class="message-container col-6" align="center" >
         <h1>No Items in Cart</h1>
         <p>Your shopping cart is currently empty.</p>
-    
+
     </div>
 </div>
 </section>
