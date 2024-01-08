@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../include/header.jsp"/>
-
+<main>
 <section class="maincontent" >
  <form method="get" action="/auth/registerSubmit">
  <div class="wrapper">
@@ -144,7 +144,7 @@
 </form>
 </section>
 
-
+<main>
 
 <jsp:include page="../include/footer.jsp"/>
 

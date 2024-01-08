@@ -1,13 +1,16 @@
 
-<section >
 
-
-            <div class="col-12 p-3 mb-2 bg-danger text-white footer" align="center">
-                CopyRight &copy; 2023
+        <section>
+            <div style="background-color: #F59cad;" class="navbar-link pt-5 pb-5">
+                <div class="row">
+                   <div class="col-12" align="center">
+                                   <b>CopyRight &copy; 2023</b>
+                   </div>
+                </div>
             </div>
+        </section>
 
-
-</section>
 </body>
 
 </html>
+

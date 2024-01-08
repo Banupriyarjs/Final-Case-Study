@@ -54,5 +54,5 @@
 
 
 
-     <script src="/pub/js/search.js"></script>
+  <script src="/pub/js/search.js"></script>
 <jsp:include page="../include/footer.jsp"/>

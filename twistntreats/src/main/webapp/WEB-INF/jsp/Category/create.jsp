@@ -1,6 +1,6 @@
 <jsp:include page="../include/header.jsp"/>
 
-
+<main>
 <section >
   <form method="get" action="/category/createSubmit" >
   <input type="hidden" name="id" value="${form.id}">
@@ -38,5 +38,5 @@
 </div>
 </form>
 </section>
-
+</main>
 <jsp:include page="../include/footer.jsp"/>
