@@ -5,6 +5,7 @@ import com.perscholas.twistntreats.database.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,10 +19,17 @@ public interface ProductDAO extends JpaRepository<Product, Long> {
 
     List<Product> findByCategoryId(Integer categoryId);
 
-    ;
-
     @Query("Select p from Product p WHERE p.status='A'")
     List<Product> findProducts();
+
+    //To view Product List
+    @Query(value = "SELECT p.id 'Id' ,p.product_name 'productName',p.product_description 'productDescription',\n" +
+            "            p.price  'price',p.category_id 'categoryId',p.product_url 'productUrl',\n" +
+            "            p.created_by 'createdBy', p.status 'status'\n" +
+            "            FROM  products p  \n" +
+            "            INNER JOIN categories c ON c.id=p.category_id\n" +
+            "            WHERE p.status='A' AND  product_name LIKE '%lemon%' AND c.status='A' ORDER BY c.id", nativeQuery = true)
+    List<Map<String, Object>> findProductsForCategory(@Param("productName") String productName);
 
     @Query(value = "SELECT p.id 'productId' ,p.product_name 'productName',p.product_description 'productDescription',\n" +
             "p.price  'price',p.product_url 'productUrl',c.id 'categoryId',\n" +

@@ -87,29 +87,20 @@ public class ProductController {
     }
 
     @GetMapping("/product/viewproductlist")
-    public ModelAndView viewProductList() {
+    public ModelAndView viewProductList(@RequestParam(required = false) String productName) {
         Integer categoryId = null;
         ModelAndView response = new ModelAndView();
         response.setViewName("product/viewproductlist");
 
-        List<Object[]> productCount = categoryDao.findProductCount();
 
-        System.out.println(productCount.size() + "product count");
-        for (Object[] p : productCount) {
-            Integer count = (Integer) p[0];
-            String name = (String) p[1];
-            System.out.println(count + " " + name);
-            System.out.println(p[0]);
-
-        }
-
-
-        List<Category> categoryList = categoryDao.findCategories();
+        List<Map<String, Object>> categoryList = categoryDao.findCategoryForProduct("%" + productName + "%");
         response.addObject("categoryList", categoryList);
+        response.addObject("productname", productName);
         System.out.println(categoryList.size());
 
-        List<Product> productList = productDAO.findAll();
+        List<Map<String, Object>> productList = productDAO.findProductsForCategory("%" + productName + "%");
         response.addObject("productList", productList);
+        response.addObject("productname", productName);
         System.out.println(productList.size());
         return response;
     }
@@ -125,15 +116,15 @@ public class ProductController {
     }*/
 
     @GetMapping("/product/search")
-    public ModelAndView searchProduct(String productname) {
+    public ModelAndView searchProduct(String productName) {
         //We are setting this to empty string to pull up the category list during intial page load
-        if (productname == null)
-            productname = "";
+        if (productName == null)
+            productName = "";
         ModelAndView response = new ModelAndView("product/search");
         log.debug("In Search Product ModelAndView");
-        List<Map<String, Object>> products = productDAO.findByProductName("%" + productname + "%");
+        List<Map<String, Object>> products = productDAO.findByProductName("%" + productName + "%");
         response.addObject("products", products);
-        response.addObject("productname", productname);
+        response.addObject("productname", productName);
         System.out.println(products.size());
         return response;
     }
