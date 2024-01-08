@@ -28,7 +28,7 @@
         <h4>${product.productName}</h4>
         <h2>$${product.price}</h2>
 
-        <input type="number" value="1" id="quantity"  onchange="handleInputChange()">
+        <input type="number" value="1" id="quantity" min="1" >
 
          <button class="normal" id="addToCartBtn">Add To Cart</button>
         <!-- <a href="#" id="addToCartBtn" class="btn btn-primary">Add to Cart</a> -->
@@ -41,14 +41,6 @@
 
  <script>
 
-      // This function will be called when the Quantity input value changes
-        function handleInputChange() {
-            var inputValue = document.getElementById('quantity').value;
-            if(inputValue<=0)
-            alert('Quantity must be greater than zero');
-
-        }
-
 
     document.getElementById('addToCartBtn').addEventListener('click', function(event) {
         event.preventDefault();
@@ -58,19 +50,13 @@
          var price = "${product.price}";
          var addToCartUrl = "/cart/addtocart?prodid=" + productId + "&catid=" + categoryId + "&price=" + price + "&quantity=" + quantityValue;
 
-      if(quantityValue<=0)
-      {
-          alert('Quantity must be greater than zero');
-          document.getElementById('quantity').focus();
-       }
-       else
-       {
+    
       //This is for hyperlink to direct
       //window.location.href = addToCartUrl;
 
        //This is for button control to redirect
         window.location.replace(addToCartUrl);
-        }
+
    });
 
 

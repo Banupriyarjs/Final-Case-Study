@@ -18,7 +18,7 @@
                     <h3>${row['productName']}</h3>
                     <h5 >Price : </h5><span class="price" id="price_${row['productId']}">$${row['price']}</span>
                     <p class="unit"><h6>Quantity:
-                                   <input class="number-input" type="number" id="quantity_${row['productId']}" onchange="updateQuantity(this)"
+                                   <input class="number-input" min="1" type="number" id="quantity_${row['productId']}" onchange="updateQuantity(this)"
                                data-product-id="${row['productId']}" value="${row['quantity']}"></h6></p>
                     <c:set var="totalPrice" value="${totalPrice+row['quantity']*row['price']}" />
                     <c:set var="userId" value="${row['userId']}" />
@@ -85,9 +85,7 @@
                     });
                     totalElement.innerText = '$' + total.toFixed(2);
 
-                   if(quantity<=0)
-                   alert('Please select a positive number');
-                  quantity.focus();
+
                 }
 
 
