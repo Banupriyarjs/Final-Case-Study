@@ -425,6 +425,27 @@ h3{
 
 
 /* View Cart */
+   .message-container {
+            text-align: center;
+            padding: 20px;
+            border: 3px solid #ccc;
+            border-radius: 10px;
+            margin-top:200px;
+            color:brown;
+            justify-content:center;
+            align-items:center;
+            border-color:green;
+            background-color: #E6B0AA;
+
+        }
+  .message-container h1
+  {
+    margin-top:50px;
+    margin-bottom:50px;
+    color:brown;
+    font-weight:800px;
+
+  }
 .cartdetails{
     max-width: 1000px;
     margin:0 auto;

@@ -2,6 +2,17 @@
 <jsp:include page="../include/header.jsp"/>
 
 <main >
+ <c:if test="${empty cartlist}">
+<section >
+<div class="container" align="center">
+    <div class="message-container col-6" align="center" >
+        <h1>No Items in Cart</h1>
+        <p>Your shopping cart is currently empty.</p>
+    
+    </div>
+</div>
+</section>
+</c:if>
 <section >
 <form method="post" >
     <c:if test="${not empty cartlist}">
@@ -95,5 +106,6 @@
          window.location.href("/cart/placeorder?userId=${userId}");
      });
 </script>
+
 <jsp:include page="../include/footer.jsp"/>
 
