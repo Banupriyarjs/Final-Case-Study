@@ -1,3 +1,85 @@
+/****************************************Index Page***************************************************/
+
+.jumbotron {
+  background-image: url("/pub/images/donut2.avif");
+  background-size: cover;
+  margin-bottom:10px;
+  height:100vh;
+ }
+
+#index-container h2 {
+  color: white;
+  font-family: 'Kaushan Script', cursive;
+  font-size: 52px;
+  margin-top:10px;
+  text-align: center;
+  font-weight:600px;
+}
+
+#index-container p {
+  color: #F2D7D5;
+  font-family: 'Kaushan Script', cursive;
+  font-size: 26px;
+  text-align: center;
+  margin-top:20px;
+}
+
+#btn-order {
+  background-color: #f8c3a5;
+  border: none;
+  border-radius: 10px;
+  color: brown;
+  font-weight:600px;
+  display: block;
+  font-family: 'Staatliches', cursive;
+  font-size: 24px;
+  margin: 20px auto;
+  padding: 10px 20px;
+  text-decoration: none;
+  width:200px;
+}
+
+#index-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  height:auto;
+
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-md-6 {
+  flex: 0 0 50%;
+}
+
+h2 {
+  color: #f8c3a5;
+  font-family: 'Staatliches', cursive;
+  font-size: 48px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+p {
+  color: #666666;
+  font-family: 'Architects Daughter', cursive;
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+
+/*******************************************************************************************/
+
 body {
 
   /* background: url(/pub/images/donutbg.jpg) center / cover;*/
