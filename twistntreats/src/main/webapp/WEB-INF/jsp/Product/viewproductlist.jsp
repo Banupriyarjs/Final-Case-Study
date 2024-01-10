@@ -3,6 +3,17 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <jsp:include page="../include/header.jsp"/>
 <main class="classicMain">
+<c:if test="${empty categoryList}">
+<section >
+<div class="container" align="center">
+    <div class="message-container col-7 py-5 mt-7" align="center" >
+        <h1>No products found with the given search term !</h1>
+        <p><b>Please try again.</b></p>
+
+    </div>
+</div>
+</section>
+</c:if>
 <section class="product">
     <c:if test="${not empty categoryList}" >
     <c:forEach items="${categoryList}" var="category">

@@ -6,6 +6,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="icon" type="image/png" href="/pub/images/donut_title.png"/><title>Twist 'n' Treats</title>
+       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+              <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+              <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -81,22 +85,39 @@
                               </sec:authorize>
                 </ul>
                 <form class="d-flex" role="search" action="/product/viewproductlist">
-                  <input class="px-2 search" type="text"  name="productName" value="${productName}" aria-label="Search">
+                  <input class="px-2 search" type="text" id="productName"  name="productName" value="${productName}"  aria-label="Search">
+                       <ul id="suggestions" class="list-group mt-2"></ul>
                   <button class="btn0"  type="submit">Search</button>
                 </form>
               </div>
             </div>
        </nav>
 </section>
-<!--
- <script>
 
-      document.getElementById('search').addEventListener('click', function(event) {
-         event.preventDefault();
-         var addToCartUrl = "/product/viewproductlist";
-         // Redirect to the addToCartUrl or use it as needed
-        window.location.href = addToCartUrl;
-        window.location.replace(addToCartUrl);
-     });
-  </script>
--->
+ <script>
+            function getProductSuggestions() {
+
+                var query = document.getElementById("productName").value;
+
+                // Make AJAX request to the Spring Boot backend
+                $.get("/autocomplete/products", { prodName: query }, function(data) {
+                    // Update the 'suggestions' list based on the response
+                      alert('hi');
+                    var suggestionsList = document.getElementById("suggestions");
+                    suggestionsList.innerHTML = "";
+                    alert(Sugg
+
+
+                    // Iterate through the list of products and display them
+                    data.forEach(function(product) {
+                    alert('hi');
+                        var listItem = document.createElement("li");
+                        listItem.className = "list-group-item";
+                        listItem.appendChild(document.createTextNode(product.productName));
+                        alert(product.productName);
+                        suggestionsList.appendChild(listItem);
+                    });
+                });
+            }
+        </script>
+
