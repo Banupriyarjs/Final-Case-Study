@@ -79,25 +79,6 @@ public class CartController {
         response.addObject("cartlist", cartList);
         response.addObject("userId", user.getId());
 
-
-      /*  for(Object o:cartList)
-        {
-            System.out.println(o.toString());
-        }
-
-        for (Map<String, Object> map : cartList) {
-            System.out.print("{");
-
-            // Iterate over each entry in the map and print key-value pairs
-            for (Map.Entry<String, Object> entry : map.entrySet()) {
-                System.out.print(entry.getKey() + ": " + entry.getValue() + ", ");
-
-            }
-
-            System.out.println("}");
-        }*/
-
-
         return response;
     }
 
