@@ -24,6 +24,7 @@ import java.io.OutputStream;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Controller
 @Slf4j
@@ -108,16 +109,6 @@ public class ProductController {
         System.out.println(productList.size());
         return response;
     }
-
-    /*@RequestMapping("/product/detail")
-    public ModelAndView viewProductDetails(@RequestParam Integer id) {
-        ModelAndView response = new ModelAndView();
-        response.setViewName("product/detail");
-        Product product = productDAO.findById(id);
-
-        response.addObject("product", product);
-        return response;
-    }*/
 
     @GetMapping("/product/search")
     public ModelAndView searchProduct(String productName) {
