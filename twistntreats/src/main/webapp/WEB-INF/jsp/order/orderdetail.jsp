@@ -1,6 +1,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:include page="../include/header.jsp"/>
-
+<!doctype html>
+<html lang="en">
+  <head>
+     <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="/pub/images/donut_title.png"/><title>Twist 'n' Treats - Order Details</title>
+ <link rel="stylesheet" href="/pub/css/search.css">
+    <link rel="stylesheet" href="/pub/css/index.css">
+    </head>
+<body>
 <section>
 <form action="/order/orderdetail">
    <main class="table" id="products_table" align=center>
@@ -59,8 +67,7 @@
       </main>
    </form>
    <section>
+</body>
+ <script src="/pub/js/search.js"></script>
+</html>
 
-
-
-  <script src="/pub/js/search.js"></script>
-<jsp:include page="../include/footer.jsp"/>

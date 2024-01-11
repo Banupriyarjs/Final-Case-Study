@@ -16,7 +16,7 @@ public interface OrderDAO extends JpaRepository<Order, Long> {
     @Query("SELECT o FROM Order o WHERE o.status='CART' AND o.user.id=:userId")
     public Order findCartList(Integer userId);
 
-    @Query(value = "SELECT o.id  'orderId', o.order_date 'orderDate', sum(od.quantity*p.price) 'totalPrice'\n" +
+    @Query(value = "SELECT o.id  'orderId', DATE_FORMAT(o.order_date, '%d %b %Y') 'orderDate', sum(od.quantity*p.price) 'totalPrice'\n" +
             "FROM orders o\n" +
             "INNER JOIN order_details od ON o.id=od.order_id AND od.status='A'\n" +
             "INNER JOIN products p ON p.id=od.product_id\n" +
