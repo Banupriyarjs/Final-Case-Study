@@ -1,13 +1,14 @@
 <jsp:include page="../include/header.jsp"/>
+<main>
+ <section >
+   <div class="container" align="center">
+       <div class="message-container col-10" align="center" >
+           <h1>404 Error</h1>
+           <p>Page Not Found</p>
 
-<section>
-    <div class="bg-light2 pt-5 pb-5">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h1 class="m-0">404 Error</h1>
-            </div>
-        </div>
-    </div>
-</section>
+       </div>
+   </div>
 
+   </section>
+</main>
 <jsp:include page="../include/footer.jsp"/>
