@@ -24,9 +24,10 @@ public class OrderDetail {
     @JoinColumn(name="product_id",nullable=false)
     private Product product;
 
-    @ManyToOne(fetch = FetchType.LAZY,optional=false)
-    @JoinColumn(name="category_id",nullable=false)
-    private Category category;
+    //@ManyToOne(fetch = FetchType.LAZY,optional=false)
+  //  @JoinColumn(name="category_id",nullable=false)
+    @Column(name="category_id")
+    private Integer categoryId;
 
     @Column(name="quantity")
     private Integer quantity;

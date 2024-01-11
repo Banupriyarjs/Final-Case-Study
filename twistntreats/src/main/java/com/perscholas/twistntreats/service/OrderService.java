@@ -62,7 +62,7 @@ public class OrderService {
                 OrderDetail orderDetail = new OrderDetail();
                 orderDetail.setOrder(order);
                 orderDetail.setProduct(product);
-                orderDetail.setCategory(category);
+                orderDetail.setCategoryId(categoryId);
                 orderDetail.setStatus("A");
                 orderDetail.setCreatedDate(new Date());
                 orderDetail.setQuantity(quantity);
