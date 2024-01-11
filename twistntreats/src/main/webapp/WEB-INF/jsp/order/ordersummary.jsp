@@ -37,7 +37,8 @@
                        <c:forEach var="row" items="${ordersummary}" varStatus="counter">
                         <tr>
                         <td>${counter.count}</td>
-                           <td><a href="/order/orderdetail/${row['orderId']}">${row['orderId']}</td>
+                          <td>  <!-- <a href="/order/orderdetail/${row['orderId']}">${row['orderId']} </a> -->
+                           <a href="/order/orderdetail/${row['orderId']}" target="popup" onclick="window.open('/order/orderdetail/${row['orderId']}','popup','width=900,height=600,scrollbars=no,resizable=yes,titlebar=0,location=0,toolbar=0'); return false;">${row['orderId']}</a></td>
 
                           <td style="max-width:100px ">${row['orderDate']}</td>
                            <td style="max-width:100px ">$${row['totalPrice']}</td>
@@ -52,7 +53,6 @@
       </main>
    </form>
    <section>
-
 
 
   <script src="/pub/js/search.js"></script>

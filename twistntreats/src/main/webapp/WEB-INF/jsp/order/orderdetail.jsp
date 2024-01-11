@@ -45,7 +45,7 @@
                              <td style="max-width:100px ">${row['orderDate']}</td>
                               <td style="max-width:100px ">${row['quantity']}</td>
                              <td style="max-width:100px ">${row['price']}</td>
-                              <td style="max-width:100px ">${row['totalPrice']}</td>
+                              <td style="max-width:100px ">$${row['totalPrice']}</td>
                              <c:set var="totalPrice" value="${totalPrice+row['quantity']*row['price']}" />
                          </tr>
                       </c:forEach>
