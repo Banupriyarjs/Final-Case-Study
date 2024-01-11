@@ -22,6 +22,8 @@ public interface ProductDAO extends JpaRepository<Product, Long> {
     @Query("Select p from Product p WHERE p.status='A'")
     List<Product> findProducts();
 
+    @Query("Select p from Product p WHERE p.status='A' AND p.productName LIKE :productName")
+    List<Product> findProductSuggestions(String productName);
     //To view Product List
     @Query(value = "SELECT p.id 'Id' ,p.product_name 'productName',p.product_description 'productDescription',\n" +
             "            p.price  'price',p.category_id 'categoryId',p.product_url 'productUrl',\n" +
@@ -36,7 +38,7 @@ public interface ProductDAO extends JpaRepository<Product, Long> {
             "p.created_by 'createdBy', p.status 'status',c.category_name 'categoryName'\n" +
             "FROM  products p  \n" +
             "INNER JOIN categories c ON c.id=p.category_id\n" +
-            "WHERE p.status='A' AND p.product_name LIKE ?1 AND c.status='A' ORDER BY p.product_name ASC", nativeQuery = true)
+            "WHERE p.status='A' AND p.product_name LIKE ?1 AND c.status='A' ORDER BY c.id,p.product_name ASC", nativeQuery = true)
     List<Map<String, Object>> findByProductName(String productName);
 
     @Transactional(readOnly = false, isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, rollbackFor = {Exception.class})
