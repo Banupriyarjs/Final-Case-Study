@@ -13,6 +13,9 @@
 </div>
 </section>
 </c:if>
+
+
+
 <section >
 <form method="post" >
     <c:if test="${not empty cartlist}">
